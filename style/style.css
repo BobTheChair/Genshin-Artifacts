@@ -55,8 +55,8 @@ body {
 }
 .header .artifact-border-middle {
   filter: blur(0.4px);
-  height: 58px;
-  width: 100%;
+  width: 98%;
+  left: 1%;
 }
 .header .artifact-border-right {
   right: 0px;
