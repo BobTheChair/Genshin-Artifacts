@@ -128,8 +128,8 @@ export class Artifact {
 	enhance(levels) {
 		if(!levels) return;
 		levels = parseInt(levels);
-
-		for(var i = 0; i < levels; i+=4){
+		
+		for(var i = this.level; i <= this.level+levels; i+=4){
 			this.upgrade(true);
 		}
 		this.level += levels;
