@@ -8,23 +8,6 @@ $font-family: "Genshin","Helvetica Neue",Helvetica,Arial,sans-serif;
 	src: url('../media/Genshin_Impact_Font.woff') format('woff');
 }
 
-.test2 {
-	position: absolute;
-	top: 100px;
-	left: 40px;
-}
-
-.test3 {
-	position: absolute;
-	top: 200px;
-	left: 40px;
-}
-.test4 {
-	position: absolute;
-	top: 300px;
-	left: 40px;
-}
-
 body{
 	font-family: $font-family;
 	background-color: $bg-color;
@@ -52,11 +35,7 @@ body{
 		background-blend-mode: color;
 		height: 225px;
 		right: 0px;
-		top: 58px;	
-		@media only screen and (max-width: 500px) {
-			top: 45px;
-		}
-
+		top: 58px;
 	}
 	/*left: 261px; /*overlap screenshot*/
 	/*left: 430px; /*next to the screenshot*/
@@ -70,12 +49,23 @@ body{
 	
 	@media only screen and (max-width: 500px) {
 		font-size: 28px;
-		height: 45px;
 	}
-
-	img {
-		opacity: 0.2;
+	
+	.artifact-border {
+			div, img {
+			filter: blur(0.4px);
+			height: 58px;
+			position: absolute;
+		}
+	}
+	.artifact-border-middle {
 		filter: blur(0.4px);
+		height: 58px;
+		width: 100%;
+	}
+	.artifact-border-right {
+		right: 0px;
+		transform: rotateY(180deg);
 	}
 	.name {
 		position: absolute;
@@ -299,6 +289,7 @@ body{
 .button:active {
 	outline-color: #888;
 	background: #cdc2b6;
+	-webkit-tap-highlight-color: transparent;
 	.label {
 		color: #fff;
 	}
@@ -309,8 +300,6 @@ body{
 		}
 	}
 }
-
-
 
 .note {
 	position: relative;
