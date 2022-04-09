@@ -48,11 +48,15 @@ export class Artifact {
 	rarity = 5;
 	level = 0;
 
-	constructor() {
-		this.set = 'ocean-hued';
-		this.piece = 'plume';
+	constructor(opts = {}) {
 
-		this.mainstat = {type:'atk', value: 311};
+
+
+		this.set = opts.set ? opts.set : 'ocean-hued';
+		this.piece = opts.piece ? opts.piece : 'circlet';
+
+
+		this.mainstat = this.randomMainstat();
 
 		
 		this.upgrade();
@@ -85,9 +89,9 @@ export class Artifact {
 	}
 
 	renderMainStat() {
-		elems.mainstat.type.innerText = window.data.en[this.mainstat.type];
-		let value = this.mainstat.value.toFixed(window.data.format[this.mainstat.type].decimals);
-		elems.mainstat.value.innerText = value + window.data.format[this.mainstat.type].suffix;
+		elems.mainstat.type.innerText = window.data.en[this.mainstat];
+		let value = this.getMainstat().toFixed(window.data.format[this.mainstat].decimals);
+		elems.mainstat.value.innerText = value + window.data.format[this.mainstat].suffix;
 	}
 
 	renderSubstats() {
@@ -110,13 +114,23 @@ export class Artifact {
 		elems.rarity.innerText = stars; 
 	}
 	
+	getMainstat() {
+		return data.main.values[this.rarity][this.mainstat][this.level];
+	}
+
+	randomMainstat() {
+		const values = data.main.rates[this.piece];
+		const types = Object.keys(values);
+		return types[Math.floor(Math.random() * types.length)];
+	}
+
 	roll() {
 		let roll = false;
 		let values = window.data.sub.values;
 		const types = Object.keys(values);
 		do {
 			let type = types[Math.floor(Math.random() * types.length)];
-			if(type !== this.mainstat.type
+			if(type !== this.mainstat
 			&& this.substats.filter(stat=>stat.type === type).length === (this.substats.length < 4 ? 0 : 1) ) {
 				roll = {type: type, value: values[type][Math.floor(Math.random() * values[type].length)]};
 			}
