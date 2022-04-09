@@ -5,23 +5,23 @@
 		},
 		"flower": {
 			"name": "Adventurer's Flower ",
-			"image": "/media/Item_Adventurer's_Flower.png"
+			"image": "media/Item_Adventurer's_Flower.png"
 		},
 		"plume": {
 			"name": "Adventurer's Tail Feather",
-			"image": "/media/Item_Adventurer's_Tail_Feather.png"
+			"image": "media/Item_Adventurer's_Tail_Feather.png"
 		},
 		"sands": {
 			"name": "Adventurer's Pocket Watch",
-			"image": "/media/Item_Adventurer's_Pocket_Watch.png"
+			"image": "media/Item_Adventurer's_Pocket_Watch.png"
 		},
 		"goblet": {
 			"name": "Adventurer's Golden Goblet",
-			"image": "/media/Item_Adventurer's_Golden_Goblet.png"
+			"image": "media/Item_Adventurer's_Golden_Goblet.png"
 		},
 		"circlet": {
 			"name": "Adventurer's Bandana",
-			"image": "/media/Item_Adventurer'_Bandana.png"
+			"image": "media/Item_Adventurer'_Bandana.png"
 		}
 	},
 	"ocean-hued": {
@@ -30,23 +30,23 @@
 		},
 		"flower": {
 			"name": "Sea-Dyed_Blossom",
-			"image": "/media/Sea-Dyed_Blossom"
+			"image": "media/Sea-Dyed_Blossom"
 		},
 		"plume": {
 			"name": "Palace's Plume",
-			"image": "/media/Item_Palace's_Plume.png"
+			"image": "media/Item_Palace's_Plume.png"
 		},
 		"sands": {
 			"name": "Cowry of Parting",
-			"image": "/media/Item_Cowry_of_Parting.png"
+			"image": "media/Item_Cowry_of_Parting.png"
 		},
 		"goblet": {
 			"name": "Pearl Cage",
-			"image": "/media/Item_Pearl_Cage.png"
+			"image": "media/Item_Pearl_Cage.png"
 		},
 		"circlet": {
 			"name": "Crown of Watatsumi",
-			"image": "/media/Item_Crown_of_Watatsumi.png"
+			"image": "media/Item_Crown_of_Watatsumi.png"
 		}
 	}
 }
