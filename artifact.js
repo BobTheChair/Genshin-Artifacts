@@ -50,14 +50,9 @@ export class Artifact {
 
 	constructor(opts = {}) {
 
-
-
 		this.set = opts.set ? opts.set : 'ocean-hued';
 		this.piece = opts.piece ? opts.piece : 'circlet';
-
-
-		this.mainstat = this.randomMainstat();
-
+		this.mainstat = opts.piece ? opts.piece : this.randomMainstat();
 		
 		this.upgrade();
 		this.upgrade();
@@ -142,7 +137,8 @@ export class Artifact {
 	enhance(levels) {
 		if(!levels) return;
 		levels = parseInt(levels);
-		
+		if(levels + this.level > 20) return;
+
 		for(var i = 1; i <= levels; i++){
 			console.log(i+this.level, (this.level + i) % 4);
 			if((this.level + i) % 4 !== 0)  continue;
@@ -159,8 +155,8 @@ export class Artifact {
 			if(levelup) console.log(roll.type, 0, '->', roll.value.toFixed(window.data.format[roll.type].decimals ));
 		} else {
 			let stat = this.substats.filter(s=>s.type === roll.type);
-			console.log(roll.type, stat[0].value.toFixed(window.data.format[roll.type].decimals), '->',
-			(stat[0].value + roll.value).toFixed(window.data.format[roll.type].decimals ));
+			console.log(roll.type, stat[0].value.toFixed(window.data.format[roll.type].decimals),
+			 '->' , (stat[0].value + roll.value).toFixed(window.data.format[roll.type].decimals) );
 			stat[0].value += roll.value;
 		}
 	}
