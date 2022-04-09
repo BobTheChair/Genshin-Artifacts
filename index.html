@@ -5,11 +5,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Genshin Artifacts</title>
-	<script src="main.js"></script>
-	<link rel="stylesheet" href="style.css">
+	<script type="module" src="elems.js"></script>
+	<script type="module" src="artifact.js"></script>
+	<script type="module" src="main.js"></script>
+	<link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-	<img src="test.png" alt="">
+	<!--img class="test2" src="test2.png" alt=""-->
+	<!--img src="test.png" alt=""-->
 	<div class="container">
 		<img class="backdrop" src="media/backdrop-mono.png">
 		<div class="header">
@@ -31,6 +34,20 @@
 			<div class="substats"></div>
 			<div class="set"></div>
 		</div>
+
+		<div class="levelup">
+			<div id="enhance"><div class="circle"><div class="ring"></div></div><div class="label">Enhance</div></div>
+			<div class="levels">
+				<label for="number">+</label><input id="number" min="0" max="20" type="number" value="4">
+				<div class="updown">
+					<div class="up">+</div>
+					<div class="down">-</div>
+				</div>
+			</div>
+			
+		</div>
+		
 	</div>
+
 </body>
 </html>

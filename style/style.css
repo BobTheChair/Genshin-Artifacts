@@ -1,0 +1,264 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Genshin";
+  src: url("../media/Genshin_Impact_Font.woff") format("woff");
+}
+.test2 {
+  position: absolute;
+  top: 680px;
+  left: 400px;
+}
+
+body {
+  font-family: "Genshin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #333;
+  margin: 0 0 0 0;
+}
+
+.container {
+  /*opacity: 0.5;*/
+  height: auto;
+  color: #eee;
+  position: absolute;
+  left: 50%;
+  top: 22px;
+  margin-left: -246px;
+  width: 492px;
+  /*left: 261px; /*overlap screenshot*/
+  /*left: 430px; /*next to the screenshot*/
+}
+@media only screen and (max-width: 500px) {
+  .container {
+    top: 1%;
+    margin-left: -49%;
+    width: 98%;
+  }
+}
+.container .backdrop {
+  opacity: 0.2;
+  position: absolute;
+  background-blend-mode: color;
+  height: 225px;
+  right: 0px;
+  top: 58px;
+}
+@media only screen and (max-width: 500px) {
+  .container .backdrop {
+    top: 45px;
+  }
+}
+
+.header {
+  font-size: 33px;
+  background: #bc6932;
+  height: 58px;
+  z-index: 10;
+}
+@media only screen and (max-width: 500px) {
+  .header {
+    font-size: 28px;
+    height: 45px;
+  }
+}
+.header img {
+  opacity: 0.2;
+  filter: blur(0.4px);
+}
+.header .name {
+  position: absolute;
+  top: 9px;
+  left: 24px;
+}
+
+.top {
+  height: 220px;
+  border-bottom: 5px solid #916f4e;
+  padding-left: 24px;
+}
+@media only screen and (max-width: 500px) {
+  .top {
+    height: 220px;
+  }
+}
+.top .piece {
+  position: relative;
+  top: 12px;
+  font-size: 22px;
+}
+.top .image {
+  height: 224px;
+  width: auto;
+  position: absolute;
+  top: 58px;
+  right: 5px;
+}
+@media only screen and (max-width: 500px) {
+  .top .image {
+    height: 180px;
+  }
+}
+.top .mainstat {
+  position: relative;
+  top: 60px;
+}
+.top .mainstat .type {
+  color: #beaea9;
+  font-size: 22px;
+}
+.top .mainstat .value {
+  font-size: 45px;
+}
+.top .rarity {
+  color: #ffcc32;
+  font-size: 60px;
+  position: relative;
+  top: 64px;
+  letter-spacing: 4px;
+}
+
+.bottom {
+  color: #38434e;
+  background-color: #e4ded2;
+  padding-left: 32px;
+  height: 300px;
+  position: relative;
+}
+.bottom .level {
+  color: white;
+  width: 52px;
+  height: 27px;
+  padding-left: 4px;
+  border-radius: 5px;
+  background: #38434e;
+  position: relative;
+  top: 26px;
+  font-size: 23px;
+}
+.bottom .substats {
+  color: #556;
+  position: relative;
+  top: 39px;
+  font-size: 25px;
+}
+@media only screen and (max-width: 500px) {
+  .bottom .substats {
+    font-size: 24px;
+  }
+}
+.bottom .substats .stat {
+  padding-top: 9px;
+}
+.bottom .substats .stat::before {
+  padding-left: 6px;
+  padding-right: 8px;
+  font-size: 20px;
+  content: "•";
+}
+.bottom .set {
+  position: relative;
+  top: 48px;
+  color: #5db257;
+  font-size: 26px;
+}
+
+.top[rarity="5"] {
+  background: linear-gradient(340deg, rgba(0, 0, 0, 0) 5%, rgba(105, 84, 83, 0.8) 100%), linear-gradient(315deg, rgba(0, 0, 0, 0) 5%, rgba(105, 84, 83, 0.8) 100%), #e3ab51;
+}
+
+.levelup {
+  position: relative;
+  top: 20px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.levelup #enhance {
+  cursor: pointer;
+  height: 62px;
+  width: 340px;
+  background-color: #e4ded2;
+  border-radius: 31px;
+  display: inline-block;
+}
+@media only screen and (max-width: 500px) {
+  .levelup #enhance {
+    width: 240px;
+  }
+}
+.levelup #enhance .circle {
+  display: inline-block;
+  position: relative;
+  top: 11px;
+  left: 11px;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background: #38434e;
+}
+.levelup #enhance .circle .ring {
+  position: relative;
+  top: 9px;
+  left: 9px;
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+  border: 3px solid #ffcc32;
+}
+.levelup #enhance .label {
+  font-size: 28px;
+  color: #38434e;
+  display: inline-block;
+  position: relative;
+  left: 80px;
+}
+@media only screen and (max-width: 500px) {
+  .levelup #enhance .label {
+    left: 34px;
+  }
+}
+.levelup .levels {
+  position: relative;
+  left: 10px;
+  height: 62px;
+  display: inline-block;
+  color: #ffcc32;
+  font-size: 28px;
+}
+.levelup .levels input {
+  color: #ffcc32;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  height: 62px;
+  width: 40px;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
+  font-family: "Genshin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 28px;
+}
+.levelup .levels input:focus {
+  outline: 0;
+}
+.levelup .levels input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.levelup .levels .updown {
+  position: absolute;
+  left: 60px;
+  top: -10px;
+  font-size: 50px;
+  line-height: 40px;
+}
+.levelup .levels .updown div {
+  padding: 5px 0 0 8px;
+  margin-bottom: 2px;
+  background-color: #38434e;
+  border-radius: 5px;
+  height: 40px;
+  width: 40px;
+}
+.levelup .levels .updown .down {
+  font-size: 54px;
+}/*# sourceMappingURL=style.css.map */

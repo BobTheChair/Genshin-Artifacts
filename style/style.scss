@@ -1,0 +1,268 @@
+$bg-color: #333;
+$color: #eee;
+$yellow: #ffcc32;
+
+$font-family: "Genshin","Helvetica Neue",Helvetica,Arial,sans-serif;
+@font-face {
+	font-family: "Genshin";
+	src: url('../media/Genshin_Impact_Font.woff') format('woff');
+}
+
+.test2 {
+	position: absolute;
+	top: 680px;
+	left: 400px;
+}
+
+body{
+	font-family: $font-family;
+	background-color: $bg-color;
+	margin: 0 0 0 0;
+}
+.container {
+	/*opacity: 0.5;*/
+	height: auto;
+	color: $color;
+	position: absolute;
+	left: 50%;
+	top: 22px;
+	margin-left: -246px;
+	width: 492px;
+
+	@media only screen and (max-width: 500px) {
+		top: 1%;
+		margin-left: -49%;
+		width: 98%;
+	}
+	
+	.backdrop {
+		opacity: 0.2;
+		position:absolute;	
+		background-blend-mode: color;
+		height: 225px;
+		right: 0px;
+		top: 58px;	
+		@media only screen and (max-width: 500px) {
+			top: 45px;
+		}
+
+	}
+	/*left: 261px; /*overlap screenshot*/
+	/*left: 430px; /*next to the screenshot*/
+}
+
+.header {
+	font-size: 33px;
+	background: #bc6932;
+	height: 58px;
+	z-index: 10;
+	
+	@media only screen and (max-width: 500px) {
+		font-size: 28px;
+		height: 45px;
+	}
+
+	img {
+		opacity: 0.2;
+		filter: blur(0.4px);
+	}
+	.name {
+		position: absolute;
+		top: 9px;
+		left: 24px;
+
+		
+	}
+}
+.top {
+	height: 220px;	
+	@media only screen and (max-width: 500px) {
+		height: 220px;
+	}
+
+	border-bottom: 5px solid #916f4e;
+	padding-left: 24px;
+	.piece{
+		position: relative;
+		top: 12px;
+		font-size: 22px;
+	}
+	.image {
+		height: 224px;
+		width: auto;
+		position: absolute;
+		top: 58px;
+		right: 5px;
+		
+		@media only screen and (max-width: 500px) {
+			height: 180px;
+		}
+	}
+	.mainstat {
+		position: relative;
+		top: 60px;
+		.type {
+			color: #beaea9;
+			font-size: 22px;
+		}
+		.value {
+			font-size: 45px;
+		}
+	}
+	.rarity {
+		color: $yellow;
+		font-size: 60px;
+		position: relative;
+		top: 64px;
+		letter-spacing: 4px;
+	}
+}
+
+.bottom {
+	color: #38434e;
+	background-color: #e4ded2;
+	padding-left: 32px;
+	height: 300px;
+	position: relative;
+	.level {
+		color:white;
+		width: 52px;
+		height: 27px;
+		padding-left: 4px;
+		border-radius: 5px;
+		background: #38434e;
+		position: relative;
+		top: 26px;
+		font-size: 23px;
+
+	}
+	.substats {
+		color:  #556;
+		position: relative;
+		top: 39px;
+		font-size: 25px;
+
+		@media only screen and (max-width: 500px) {
+			font-size: 24px;
+		}
+
+		.stat {
+			padding-top: 9px;
+		}
+		.stat::before {
+			padding-left: 6px;
+			padding-right: 8px;
+			font-size: 20px;
+			content:  '•';
+		}
+	}
+
+	.set {
+		position: relative;
+		top: 48px;
+		color: #5db257;
+		font-size: 26px;
+	}
+}
+
+.top[rarity="5"] {
+	background: 
+		linear-gradient(340deg, #0000 5%, #695453cc 100%), 
+		linear-gradient(315deg, #0000 5%, #695453cc 100%),
+		#e3ab51;
+}
+
+
+.levelup {
+	position: relative;
+	top: 20px;
+	user-select: none;
+	#enhance {
+		cursor: pointer;
+		height: 62px;
+		width: 340px;
+		background-color: #e4ded2;
+		border-radius: 31px;
+		display: inline-block;
+
+		@media only screen and (max-width: 500px) {
+			width: 240px;
+		}
+
+		.circle {
+			display: inline-block;
+			position: relative;
+			top: 11px;
+			left: 11px;
+			height: 40px;
+			width: 40px;
+			border-radius: 20px;
+			background: #38434e;
+			.ring {
+				position: relative;
+				top: 9px;
+				left: 9px;
+				height: 16px;
+				width: 16px;
+				border-radius: 16px;
+				border: 3px solid $yellow;
+			}
+		}
+		.label {
+			font-size: 28px;
+			color: #38434e;
+			display: inline-block;
+
+			position: relative;
+			left: 80px;
+				
+			@media only screen and (max-width: 500px) {
+				left: 34px;
+			}
+		}
+	}
+	.levels {
+		position: relative;
+		left: 10px;
+		height: 62px;
+		display: inline-block;
+		color: $yellow;
+		font-size: 28px;
+		input {
+			color: $yellow;
+			background-color: #0000;
+			border: none;
+			height: 62px;
+			width: 40px;
+			user-select: text;
+			font-family: $font-family;
+			font-size: 28px;
+		}
+		input:focus{
+			outline: 0;
+		}
+		input[type=number]::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+		}
+		.updown {
+			position: absolute;
+			left: 60px;
+			top: -10px;
+			font-size: 50px;
+			line-height: 40px;
+			div {
+				
+				padding: 5px 0 0 8px;
+				margin-bottom: 2px;
+				background-color: #38434e;
+				border-radius: 5px;
+				height: 40px;
+				width: 40px;
+			}
+			.down {				
+				font-size: 54px;
+			}
+		}
+	}
+	
+}
