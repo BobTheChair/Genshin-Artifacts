@@ -14,7 +14,8 @@ window.data = {
 		'em'		: { suffix: '',  decimals : 0 },
 		'er'		: { suffix: '%', decimals : 1 },
 		'crit-rate'	: { suffix: '%', decimals : 1 },
-		'crit-dmg' 	: { suffix: '%', decimals : 1 }
+		'crit-dmg' 	: { suffix: '%', decimals : 1 },
+		'heal' 		: { suffix: '%', decimals : 1 }
 	},
 	en: {
 		'hp' 		: 'HP',
@@ -27,6 +28,7 @@ window.data = {
 		'er'		: 'Energy Recharge',
 		'crit-rate'	: 'CRIT Rate',
 		'crit-dmg' 	: 'CRIT DMG',
+		'heal'		: 'Healing Bonus',
 		'flower'	: 'Flower of Life',
 		'plume'		: 'Plume of Death',
 		'sands'		: 'Sands of Eon',
@@ -51,24 +53,26 @@ export class Artifact {
 	constructor(opts = {}) {
 
 		this.set = opts.set ? opts.set : 'ocean-hued';
+		this.level = opts.level ? opts.level : 0;
 		this.piece = opts.piece ? opts.piece : 'circlet';
 		this.mainstat = opts.piece ? opts.piece : this.randomMainstat();
 		
-		this.upgrade();
-		this.upgrade();
-		this.upgrade();
-
-		if(Math.random() > 0.75) {
+		if(opts.substats) {
+			this.substats = [
+				{type: 'crit-rate', value:7.8},
+				{type: 'er', value: 5.2},
+				{type: 'atk', value: 29},
+				{type: 'def-p', value: 18.2}
+			];
+		} else {
 			this.upgrade();
+			this.upgrade();
+			this.upgrade();
+	
+			if(Math.random() > 0.75) {
+				this.upgrade();
+			}
 		}
-
-		/*this.substats = [
-			{type: 'crit-rate', value:7.8},
-			{type: 'er', value: 5.2},
-			{type: 'atk', value: 29},
-			{type: 'def-p', value: 18.2}
-		];*/
-
 	}
 
 	render() {
@@ -140,7 +144,6 @@ export class Artifact {
 		if(levels + this.level > 20) return;
 
 		for(var i = 1; i <= levels; i++){
-			console.log(i+this.level, (this.level + i) % 4);
 			if((this.level + i) % 4 !== 0)  continue;
 			this.upgrade(true);
 		}
