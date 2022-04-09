@@ -99,5 +99,30 @@
 				"em":		4
 			}
 		}
+	},
+	"en": {
+		"hp" 		: "HP",
+		"atk"		: "ATK",
+		"def"		: "DEF",
+		"hp-p" 		: "HP",
+		"atk-p" 	: "ATK",
+		"def-p" 	: "DEF",
+		"em"		: "Elemental Mastery",
+		"er"		: "Energy Recharge",
+		"crit-rate"	: "CRIT Rate",
+		"crit-dmg" 	: "CRIT DMG",
+		"heal"		: "Healing Bonus",
+		"phys"		: "Physical Damage",
+		"anemo"		: "Anemo Damage",
+		"cryo"		: "Cryo Damage",
+		"electro"	: "Electro Damage",
+		"geo"		: "Geo Damage",
+		"hydro"		: "Hydro Damage",
+		"pyro"		: "Pyro Damage",
+		"flower"	: "Flower of Life",
+		"plume"		: "Plume of Death",
+		"sands"		: "Sands of Eon",
+		"goblet"	: "Goblet of Eonothem",
+		"circlet"	: "Circlet of Logos"
 	}
 }

@@ -15,28 +15,12 @@ window.data = {
 		'er'		: { suffix: '%', decimals : 1 },
 		'crit-rate'	: { suffix: '%', decimals : 1 },
 		'crit-dmg' 	: { suffix: '%', decimals : 1 },
-		'heal' 		: { suffix: '%', decimals : 1 }
-	},
-	en: {
-		'hp' 		: 'HP',
-		'atk'		: 'ATK',
-		'def'		: 'DEF',
-		'hp-p' 		: 'HP',
-		'atk-p' 	: 'ATK',
-		'def-p' 	: 'DEF',
-		'em'		: 'Elemental Mastery',
-		'er'		: 'Energy Recharge',
-		'crit-rate'	: 'CRIT Rate',
-		'crit-dmg' 	: 'CRIT DMG',
-		'heal'		: 'Healing Bonus',
-		'flower'	: 'Flower of Life',
-		'plume'		: 'Plume of Death',
-		'sands'		: 'Sands of Eon',
-		'goblet'	: 'Goblet of Eonothem',
-		'circlet'	: 'Circlet of Logos'
+		'heal' 		: { suffix: '%', decimals : 1 },
+		'phys' 		: { suffix: '%', decimals : 1 },
+		'elem' 		: { suffix: '%', decimals : 1 }
 	}
 };
-fetch('data.json').then(data=>data.json()).then(json=>{window.data.main=json.main;window.data.sub=json.sub;});
+fetch('data.json').then(data=>data.json()).then(json=>{window.data.main=json.main;window.data.sub=json.sub;window.data.en=json.en});
 fetch('artifacts.json').then(data=>data.json()).then(json=>window.data.artifacts=json);
 
 
@@ -54,7 +38,7 @@ export class Artifact {
 
 		this.set = opts.set ? opts.set : 'ocean-hued';
 		this.level = opts.level ? opts.level : 0;
-		this.piece = opts.piece ? opts.piece : 'circlet';
+		this.piece = opts.piece ? opts.piece : 'goblet';
 		this.mainstat = opts.piece ? opts.piece : this.randomMainstat();
 		
 		if(opts.substats) {
@@ -88,9 +72,11 @@ export class Artifact {
 	}
 
 	renderMainStat() {
+		let mainstat = ["anemo", "cryo", "electro", "geo", "hydro", "pyro"].includes(this.mainstat) ? 'elem' : this.mainstat;
+
 		elems.mainstat.type.innerText = window.data.en[this.mainstat];
-		let value = this.getMainstat().toFixed(window.data.format[this.mainstat].decimals);
-		elems.mainstat.value.innerText = value + window.data.format[this.mainstat].suffix;
+		let value = this.getMainstat().toFixed(window.data.format[mainstat].decimals);
+		elems.mainstat.value.innerText = value + window.data.format[mainstat].suffix;
 	}
 
 	renderSubstats() {
@@ -114,7 +100,8 @@ export class Artifact {
 	}
 	
 	getMainstat() {
-		return data.main.values[this.rarity][this.mainstat][this.level];
+		let mainstat = ["anemo", "cryo", "electro", "geo", "hydro", "pyro"].includes(this.mainstat) ? 'elem' : this.mainstat;
+		return data.main.values[this.rarity][mainstat][this.level];
 	}
 
 	randomMainstat() {
