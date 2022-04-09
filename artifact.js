@@ -50,9 +50,9 @@ export class Artifact {
 
 	constructor() {
 		this.set = 'ocean-hued';
-		this.piece = 'circlet';
+		this.piece = 'plume';
 
-		this.mainstat = {type:'atk-p', value: 46.6};
+		this.mainstat = {type:'atk', value: 311};
 
 		
 		this.upgrade();
@@ -129,7 +129,9 @@ export class Artifact {
 		if(!levels) return;
 		levels = parseInt(levels);
 		
-		for(var i = this.level; i <= this.level+levels; i+=4){
+		for(var i = 1; i <= levels; i++){
+			console.log(i+this.level, (this.level + i) % 4);
+			if((this.level + i) % 4 !== 0)  continue;
 			this.upgrade(true);
 		}
 		this.level += levels;
