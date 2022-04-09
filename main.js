@@ -98,13 +98,14 @@ class Artifact {
 		return roll;
 	}
 
-	upgrade() {
+	upgrade(levelup = false) {
+		if(levelup) this.level += 4;
+
 		let roll = this.roll();
 		if(this.substats.length < 4) {
 			this.substats.push(roll);
 			console.log(roll);
 		} else {
-			this.level += 4;
 			let stat = this.substats.filter(s=>s.type === roll.type);
 			console.log(roll.type, stat[0].value.toFixed(data.format[roll.type].decimals), '->', (stat[0].value + roll.value).toFixed(data.format[roll.type].decimals ));
 			stat[0].value += roll.value;
