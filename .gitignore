@@ -1,5 +1,11 @@
 media/wget.exe
+
+node_modules/
 test.png
 test2.png
 test3.png
 test4.png
+
+package-lock.json
+package.json
+test.js

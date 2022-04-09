@@ -26,15 +26,6 @@ window.onload = e => {
 	elems.enhance.addEventListener('click', e => {
 		window.art.enhance(elems.number.value - 0);
 	});
-	/*
-	elems.up.addEventListener('click', e => {
-		console.log(elems.number.value);
-	});
-
-	elems.down.addEventListener('click', e => {
-		window.art.levelup(-
-	});
-	*/
 
 	setTimeout(()=>{
 		window.art = new Artifact.Artifact();

@@ -154,7 +154,7 @@ body {
 }
 .bottom .set {
   position: relative;
-  top: 48px;
+  top: 50px;
   color: #5db257;
   font-size: 26px;
 }
@@ -281,7 +281,8 @@ body {
 }
 
 .button:active {
-  outline-color: #888;
+  box-shadow: 0 0 8px white;
+  outline: 3px solid #888;
   background: #cdc2b6;
   -webkit-tap-highlight-color: transparent;
 }
