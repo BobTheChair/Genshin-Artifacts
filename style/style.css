@@ -5,8 +5,20 @@
 }
 .test2 {
   position: absolute;
-  top: 680px;
-  left: 400px;
+  top: 100px;
+  left: 40px;
+}
+
+.test3 {
+  position: absolute;
+  top: 200px;
+  left: 40px;
+}
+
+.test4 {
+  position: absolute;
+  top: 300px;
+  left: 40px;
 }
 
 body {
@@ -174,11 +186,7 @@ body {
           user-select: none;
 }
 .levelup #enhance {
-  cursor: pointer;
-  height: 62px;
   width: 340px;
-  background-color: #e4ded2;
-  border-radius: 31px;
   display: inline-block;
 }
 @media only screen and (max-width: 500px) {
@@ -186,28 +194,7 @@ body {
     width: 240px;
   }
 }
-.levelup #enhance .circle {
-  display: inline-block;
-  position: relative;
-  top: 11px;
-  left: 11px;
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
-  background: #38434e;
-}
-.levelup #enhance .circle .ring {
-  position: relative;
-  top: 9px;
-  left: 9px;
-  height: 16px;
-  width: 16px;
-  border-radius: 16px;
-  border: 3px solid #ffcc32;
-}
 .levelup #enhance .label {
-  font-size: 28px;
-  color: #38434e;
   display: inline-block;
   position: relative;
   left: 80px;
@@ -261,4 +248,67 @@ body {
 }
 .levelup .levels .updown .down {
   font-size: 54px;
+}
+.levelup .levels .updown > div:hover {
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.2666666667);
+}
+.levelup .levels .updown > div:active {
+  color: #ffff5a;
+  background: #978159;
+}
+
+.button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: #e4ded2;
+  cursor: pointer;
+  height: 62px;
+  border-radius: 31px;
+  font-size: 28px;
+  color: #38434e;
+}
+.button .circle {
+  display: inline-block;
+  position: relative;
+  top: 11px;
+  left: 11px;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background: #38434e;
+}
+.button .circle .ring {
+  position: relative;
+  top: 9px;
+  left: 9px;
+  height: 16px;
+  width: 16px;
+  border-radius: 15px;
+  border: 3px solid #ffcc32;
+}
+
+.button:hover {
+  outline: 3px solid white;
+  box-shadow: 0 0 6px white;
+}
+
+.button:active {
+  outline-color: #888;
+  background: #cdc2b6;
+}
+.button:active .label {
+  color: #fff;
+}
+.button:active .circle {
+  background: #978159;
+}
+.button:active .circle .ring {
+  border: 3px solid #ffff5a;
+}
+
+.note {
+  position: relative;
+  top: 40px;
 }/*# sourceMappingURL=style.css.map */

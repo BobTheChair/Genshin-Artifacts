@@ -10,8 +10,19 @@ $font-family: "Genshin","Helvetica Neue",Helvetica,Arial,sans-serif;
 
 .test2 {
 	position: absolute;
-	top: 680px;
-	left: 400px;
+	top: 100px;
+	left: 40px;
+}
+
+.test3 {
+	position: absolute;
+	top: 200px;
+	left: 40px;
+}
+.test4 {
+	position: absolute;
+	top: 300px;
+	left: 40px;
 }
 
 body{
@@ -178,39 +189,14 @@ body{
 	top: 20px;
 	user-select: none;
 	#enhance {
-		cursor: pointer;
-		height: 62px;
 		width: 340px;
-		background-color: #e4ded2;
-		border-radius: 31px;
 		display: inline-block;
 
 		@media only screen and (max-width: 500px) {
 			width: 240px;
 		}
 
-		.circle {
-			display: inline-block;
-			position: relative;
-			top: 11px;
-			left: 11px;
-			height: 40px;
-			width: 40px;
-			border-radius: 20px;
-			background: #38434e;
-			.ring {
-				position: relative;
-				top: 9px;
-				left: 9px;
-				height: 16px;
-				width: 16px;
-				border-radius: 16px;
-				border: 3px solid $yellow;
-			}
-		}
 		.label {
-			font-size: 28px;
-			color: #38434e;
 			display: inline-block;
 
 			position: relative;
@@ -263,6 +249,70 @@ body{
 				font-size: 54px;
 			}
 		}
+		.updown > div:hover {
+			box-shadow: 0 0 4px #fff4;
+			
+		}
+		.updown > div:active {
+			color: #ffff5a;
+			background: #978159;
+		}
 	}
 	
+}
+
+.button {
+	user-select: none;
+	background-color: #e4ded2;
+	cursor: pointer;
+	height: 62px;
+	border-radius: 31px;
+	
+	font-size: 28px;
+	color: #38434e;
+	
+	.circle {
+		display: inline-block;
+		position: relative;
+		top: 11px;
+		left: 11px;
+		height: 40px;
+		width: 40px;
+		border-radius: 20px;
+		background: #38434e;
+		.ring {
+			position: relative;
+			top: 9px;
+			left: 9px;
+			height: 16px;
+			width: 16px;
+			border-radius: 15px;
+			border: 3px solid $yellow;
+		}
+	}
+}
+
+.button:hover {
+	outline: 3px solid white;
+	box-shadow: 0 0 6px white;
+}
+.button:active {
+	outline-color: #888;
+	background: #cdc2b6;
+	.label {
+		color: #fff;
+	}
+	.circle {
+		background: #978159;
+		.ring {
+			border: 3px solid #ffff5a;
+		}
+	}
+}
+
+
+
+.note {
+	position: relative;
+	top: 40px;
 }
