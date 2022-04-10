@@ -63,17 +63,17 @@
 		"rates": {
 
 			"flower": {
-				"hp": 1
+				"hp": 100
 			},
 			"plume": {
-				"atk": 1
+				"atk": 100
 			},
 			"sands": {
 				"hp-p": 	26.68,
 				"atk-p": 	26.66,
 				"def-p": 	26.66,
 				"er": 		10,
-				"em":		1
+				"em":		10
 			},
 			"goblet": {
 				"hp-p": 	21.25,

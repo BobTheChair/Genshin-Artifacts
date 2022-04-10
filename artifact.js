@@ -24,7 +24,7 @@ export class Artifact {
 
 		this.set = opts.set ? opts.set : 'ocean-hued';
 		this.piece = opts.piece ? opts.piece : this.randomPiece();
-		this.mainstat = opts.piece ? opts.piece : this.randomMainstat();
+		this.mainstat = opts.mainstat ? opts.mainstat : this.randomMainstat();
 		
 		if(opts.substats) {
 			this.level = opts.level ? opts.level : 0;
@@ -98,24 +98,44 @@ export class Artifact {
 		return data.main.values[this.rarity][mainstat][this.level];
 	}
 
+	weightedRandom(rates) {
+		//console.log(rates);
+		let i;
+		let sum = 0;
+		let types = Object.keys(rates);
+		let values = Object.values(rates);
+		let total = values.reduce((partialSum, a) => partialSum + a, 0);
+
+		let r = Math.random();
+
+		for (i in values) {
+		  sum += values[i] / total;
+		  if (r <= sum) return types[i];
+		}
+	  }
+
 	randomMainstat() {
-		const values = data.main.rates[this.piece];
-		const types = Object.keys(values);
-		return types[Math.floor(Math.random() * types.length)];
+		return this.weightedRandom(data.main.rates[this.piece]);
 	}
 
 	roll() {
-		let roll = false;
 		let values = window.data.sub.values;
-		const types = Object.keys(values);
-		do {
-			let type = types[Math.floor(Math.random() * types.length)];
-			if(type !== this.mainstat
-			&& this.substats.filter(stat=>stat.type === type).length === (this.substats.length < 4 ? 0 : 1) ) {
-				roll = {type: type, value: values[type][Math.floor(Math.random() * values[type].length)]};
+		let rates = {};
+
+		if(this.substats.length < 4) {
+			for(let rate of Object.keys(data.sub.rates)) {
+				if(rate === this.mainstat) continue;
+				if(this.substats.filter(stat => stat.type === rate).length !== 0) continue;
+				rates[rate] = data.sub.rates[rate];
 			}
-		} while(!roll);
-		return roll;
+		} else {
+			for(let stat of this.substats) {
+				if(stat.type === this.mainstat) continue;
+				rates[stat.type] = data.sub.rates[stat.type];
+			}
+		}
+		let type = this.weightedRandom(rates);
+		return {type: type, value: values[type][Math.floor(Math.random() * values[type].length)]};
 	}
 
 

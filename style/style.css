@@ -307,7 +307,10 @@ body {
   top: 30px;
 }
 
-.note {
+.link {
   position: relative;
   top: 40px;
+}
+.link a {
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */
