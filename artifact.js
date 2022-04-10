@@ -87,6 +87,12 @@ export class Artifact {
 		elems.rarity.innerText = stars; 
 	}
 	
+	randomPiece() {
+		const values = data.main.rates;
+		const types = Object.keys(values);
+		return types[Math.floor(Math.random() * types.length)];
+	}
+
 	getMainstat() {
 		let mainstat = ["anemo", "cryo", "electro", "geo", "hydro", "pyro"].includes(this.mainstat) ? 'elem' : this.mainstat;
 		return data.main.values[this.rarity][mainstat][this.level];
@@ -94,12 +100,6 @@ export class Artifact {
 
 	randomMainstat() {
 		const values = data.main.rates[this.piece];
-		const types = Object.keys(values);
-		return types[Math.floor(Math.random() * types.length)];
-	}
-
-	randomPiece() {
-		const values = data.main.rates;
 		const types = Object.keys(values);
 		return types[Math.floor(Math.random() * types.length)];
 	}

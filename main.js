@@ -1,6 +1,8 @@
 import * as Artifact from './artifact.js';
 import * as elems from './elems.js';
 
+window.Artifact = Artifact.Artifact;
+
 window.onload = e => {
 
 	/**
