@@ -186,16 +186,6 @@ body{
 			width: 240px;
 		}
 
-		.label {
-			display: inline-block;
-
-			position: relative;
-			left: 80px;
-				
-			@media only screen and (max-width: 500px) {
-				left: 34px;
-			}
-		}
 	}
 	.levels {
 		position: relative;
@@ -257,11 +247,16 @@ body{
 	cursor: pointer;
 	height: 62px;
 	border-radius: 31px;
-	
+	width: 300px;
 	font-size: 28px;
 	color: #38434e;
 	
 	position: relative;
+
+	
+	@media only screen and (max-width: 500px) {
+		width: 200px;
+	}
 	
 	.circle {
 		display: inline-block;
@@ -280,6 +275,17 @@ body{
 			width: 16px;
 			border-radius: 15px;
 			border: 3px solid $yellow;
+		}
+	}
+	
+	.label {
+		display: inline-block;
+
+		position: relative;
+		left: 80px;
+			
+		@media only screen and (max-width: 500px) {
+			left: 34px;
 		}
 	}
 }
@@ -303,7 +309,9 @@ body{
 		}
 	}
 }
-
+#reroll {
+	top: 30px;
+}
 .note {
 	position: relative;
 	top: 40px;

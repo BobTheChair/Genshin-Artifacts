@@ -1,26 +1,12 @@
 import * as elems from './elems.js';
 
-window.data = {
-	artifacts: {},
-	main: {},
-	sub: {},
-	format: {
-		'hp' 		: { suffix: '',  decimals : 0 },
-		'atk'		: { suffix: '',  decimals : 0 },
-		'def'		: { suffix: '',  decimals : 0 },
-		'hp-p' 		: { suffix: '%', decimals : 1 },
-		'atk-p' 	: { suffix: '%', decimals : 1 },
-		'def-p' 	: { suffix: '%', decimals : 1 },
-		'em'		: { suffix: '',  decimals : 0 },
-		'er'		: { suffix: '%', decimals : 1 },
-		'crit-rate'	: { suffix: '%', decimals : 1 },
-		'crit-dmg' 	: { suffix: '%', decimals : 1 },
-		'heal' 		: { suffix: '%', decimals : 1 },
-		'phys' 		: { suffix: '%', decimals : 1 },
-		'elem' 		: { suffix: '%', decimals : 1 }
-	}
-};
-fetch('data.json').then(data=>data.json()).then(json=>{window.data.main=json.main;window.data.sub=json.sub;window.data.en=json.en});
+window.data = {};
+fetch('data.json').then(data=>data.json()).then(json=>{
+	window.data.format=json.format;
+	window.data.main=json.main;
+	window.data.sub=json.sub;
+	window.data.en=json.en;
+});
 fetch('artifacts.json').then(data=>data.json()).then(json=>window.data.artifacts=json);
 
 
@@ -38,7 +24,7 @@ export class Artifact {
 
 		this.set = opts.set ? opts.set : 'ocean-hued';
 		this.level = opts.level ? opts.level : 0;
-		this.piece = opts.piece ? opts.piece : 'goblet';
+		this.piece = opts.piece ? opts.piece : this.randomPiece();
 		this.mainstat = opts.piece ? opts.piece : this.randomMainstat();
 		
 		if(opts.substats) {
@@ -106,6 +92,12 @@ export class Artifact {
 
 	randomMainstat() {
 		const values = data.main.rates[this.piece];
+		const types = Object.keys(values);
+		return types[Math.floor(Math.random() * types.length)];
+	}
+
+	randomPiece() {
+		const values = data.main.rates;
 		const types = Object.keys(values);
 		return types[Math.floor(Math.random() * types.length)];
 	}

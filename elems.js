@@ -11,6 +11,7 @@ export var set = container.getElementsByClassName('set')[0];
 export var level = container.getElementsByClassName('level')[0];
 export var substats = container.getElementsByClassName('substats')[0];
 
+export var reroll = document.getElementById("reroll");
 export var enhance = document.getElementById("enhance");
 export var number = document.getElementById("number");
 export var up = document.querySelector('.levelup .up')

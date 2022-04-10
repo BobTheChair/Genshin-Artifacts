@@ -27,6 +27,11 @@ window.onload = e => {
 		window.art.enhance(elems.number.value - 0);
 	});
 
+	elems.reroll.addEventListener('click', e => {
+		window.art = new Artifact.Artifact();
+		window.art.render();
+	});
+
 	setTimeout(()=>{
 		window.art = new Artifact.Artifact();
 		console.log(window.art);

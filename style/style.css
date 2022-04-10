@@ -180,16 +180,6 @@ body {
     width: 240px;
   }
 }
-.levelup #enhance .label {
-  display: inline-block;
-  position: relative;
-  left: 80px;
-}
-@media only screen and (max-width: 500px) {
-  .levelup #enhance .label {
-    left: 34px;
-  }
-}
 .levelup .levels {
   position: relative;
   left: 10px;
@@ -252,8 +242,15 @@ body {
   cursor: pointer;
   height: 62px;
   border-radius: 31px;
+  width: 300px;
   font-size: 28px;
   color: #38434e;
+  position: relative;
+}
+@media only screen and (max-width: 500px) {
+  .button {
+    width: 200px;
+  }
 }
 .button .circle {
   display: inline-block;
@@ -273,6 +270,16 @@ body {
   width: 16px;
   border-radius: 15px;
   border: 3px solid #ffcc32;
+}
+.button .label {
+  display: inline-block;
+  position: relative;
+  left: 80px;
+}
+@media only screen and (max-width: 500px) {
+  .button .label {
+    left: 34px;
+  }
 }
 
 .button:hover {
@@ -294,6 +301,10 @@ body {
 }
 .button:active .circle .ring {
   border: 3px solid #ffff5a;
+}
+
+#reroll {
+  top: 30px;
 }
 
 .note {
