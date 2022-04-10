@@ -29,7 +29,7 @@ export class Artifact {
 		
 		if(opts.substats) {
 			this.substats = [
-				{type: 'crit-rate', value:7.8},
+				{type: 'cr', value:7.8},
 				{type: 'er', value: 5.2},
 				{type: 'atk', value: 29},
 				{type: 'def-p', value: 18.2}
