@@ -23,11 +23,11 @@ export class Artifact {
 	constructor(opts = {}) {
 
 		this.set = opts.set ? opts.set : 'ocean-hued';
-		this.level = opts.level ? opts.level : 0;
 		this.piece = opts.piece ? opts.piece : this.randomPiece();
 		this.mainstat = opts.piece ? opts.piece : this.randomMainstat();
 		
 		if(opts.substats) {
+			this.level = opts.level ? opts.level : 0;
 			this.substats = [
 				{type: 'cr', value:7.8},
 				{type: 'er', value: 5.2},
@@ -42,6 +42,8 @@ export class Artifact {
 			if(Math.random() > 0.75) {
 				this.upgrade();
 			}
+
+			if(opts.level) this.enhance(opts.level);
 		}
 	}
 
@@ -127,7 +129,6 @@ export class Artifact {
 			this.upgrade(true);
 		}
 		this.level += levels;
-		this.render();
 	}
 
 	upgrade(levelup = false) {

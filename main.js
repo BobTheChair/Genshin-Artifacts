@@ -25,6 +25,7 @@ window.onload = e => {
 
 	elems.enhance.addEventListener('click', e => {
 		window.art.enhance(elems.number.value - 0);
+		window.art.render();
 	});
 
 	elems.reroll.addEventListener('click', e => {
