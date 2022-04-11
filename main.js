@@ -8,16 +8,15 @@ window.onload = e => {
 	/**
 	 * enfoces min/max value for manual input on a number input
 	 */
-	function numberChange(e) {
-		let t = e.target;
-		t.value = parseInt(t.value);
+	function numberChange(t) {
 		let min = t.getAttribute('min');
 		let max = t.getAttribute('max');
+		console.log(min, max)
 		if(t.value - 0 < min - 0) t.value = min;
 		if(t.value - 0 > max - 0) t.value = max;
 	}
 
-	elems.number.addEventListener('change', numberChange);
+	elems.number.addEventListener('change', e => numberChange(e.target));
 
 	elems.updown.addEventListener('click', e => {
 		if(e.target !== elems.up && e.target !== elems.down) return;
