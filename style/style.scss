@@ -79,16 +79,13 @@ body{
 }
 .top {
 	height: 220px;	
-	@media only screen and (max-width: 500px) {
-		height: 220px;
-	}
 
 	border-bottom: 5px solid #916f4e;
 	padding-left: 24px;
 	.piece{
 		position: relative;
 		top: 12px;
-		font-size: 22px;
+		font-size: 20px;
 	}
 	.image {
 		height: 224px;
@@ -103,10 +100,10 @@ body{
 	}
 	.mainstat {
 		position: relative;
-		top: 60px;
+		top: 69px;
 		.type {
 			color: #beaea9;
-			font-size: 22px;
+			font-size: 20px;
 		}
 		.value {
 			font-size: 45px;
@@ -116,8 +113,8 @@ body{
 		color: $yellow;
 		font-size: 60px;
 		position: relative;
-		top: 64px;
-		letter-spacing: 4px;
+		top: 70px;
+		letter-spacing: 5px;
 	}
 }
 
@@ -148,6 +145,7 @@ body{
 		position: relative;
 		top: 39px;
 		font-size: 25px;
+		letter-spacing: -1px;
 
 		@media only screen and (max-width: 500px) {
 			font-size: 24px;
@@ -255,7 +253,6 @@ body{
 
 
 .checkbox-container {
-	
 	width: 160px;
 	float:right;
 	position: absolute;
