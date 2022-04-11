@@ -1,10 +1,7 @@
 media/wget.exe
 
 node_modules/
-test.png
-test2.png
-test3.png
-test4.png
+references/
 
 package-lock.json
 package.json

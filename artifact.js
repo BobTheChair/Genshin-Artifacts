@@ -48,7 +48,8 @@ export class Artifact {
 	}
 
 	render() {
-		elems.image.setAttribute('src', window.data.artifacts[this.set][this.piece].image);
+		let img =  window.data.artifacts[this.set][this.piece].image;
+		if(elems.image.getAttribute('src') !== img) elems.image.setAttribute('src', img);
 		elems.set.innerText = window.data.artifacts[this.set].set.name;
 		elems.name.innerText =  window.data.artifacts[this.set][this.piece].name;
 		elems.piece.innerText = window.data.en[this.piece];
@@ -88,8 +89,7 @@ export class Artifact {
 	}
 	
 	randomPiece() {
-		const values = data.main.rates;
-		const types = Object.keys(values);
+		const types = Object.keys(data.main.rates);
 		return types[Math.floor(Math.random() * types.length)];
 	}
 
@@ -99,7 +99,6 @@ export class Artifact {
 	}
 
 	weightedRandom(rates) {
-		//console.log(rates);
 		let i;
 		let sum = 0;
 		let types = Object.keys(rates);

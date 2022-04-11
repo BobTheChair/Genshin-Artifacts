@@ -31,7 +31,9 @@ window.onload = e => {
 	});
 
 	elems.reroll.addEventListener('click', e => {
-		window.art = new Artifact.Artifact();
+		let opts = {};
+		if(elems.enhancedReroll.checked) opts.level = elems.number.value - 0;
+		window.art = new Artifact.Artifact(opts);
 		window.art.render();
 	});
 

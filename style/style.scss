@@ -126,10 +126,11 @@ body{
 	height: 300px;
 	position: relative;
 	.level {
+		text-align: center;
 		color:white;
 		width: 52px;
 		height: 27px;
-		padding-left: 4px;
+		padding-left: 2px;
 		border-radius: 5px;
 		background: #38434e;
 		position: relative;
@@ -176,7 +177,8 @@ body{
 
 .levelup {
 	position: relative;
-	top: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 	user-select: none;
 	#enhance {
 		width: 340px;
@@ -188,7 +190,6 @@ body{
 
 	}
 	.levels {
-		position: relative;
 		left: 10px;
 		height: 62px;
 		display: inline-block;
@@ -212,7 +213,7 @@ body{
 		}
 		.updown {
 			position: absolute;
-			left: 70px;
+			right: 6px;
 			top: -10px;
 			font-size: 50px;
 			line-height: 40px;
@@ -241,81 +242,21 @@ body{
 	
 }
 
-.button {
-	user-select: none;
-	background-color: #e4ded2;
-	cursor: pointer;
-	height: 62px;
-	border-radius: 31px;
-	width: 300px;
-	font-size: 28px;
-	color: #38434e;
-	
-	position: relative;
-
-	
-	@media only screen and (max-width: 500px) {
-		width: 200px;
-	}
-	
-	.circle {
-		display: inline-block;
-		position: relative;
-		top: 11px;
-		left: 11px;
-		height: 40px;
-		width: 40px;
-		border-radius: 20px;
-		background: #38434e;
-		.ring {
-			position: relative;
-			top: 9px;
-			left: 9px;
-			height: 16px;
-			width: 16px;
-			border-radius: 15px;
-			border: 3px solid $yellow;
-		}
-	}
-	
-	.label {
-		display: inline-block;
-
-		position: relative;
-		left: 80px;
-			
-		@media only screen and (max-width: 500px) {
-			left: 34px;
-		}
-	}
-}
-
-.button:hover {
-	outline: 3px solid white;
-	box-shadow: 0 0 6px white;
-}
-.button:active {
-	box-shadow: 0 0 8px white;
-	outline: 3px solid #888;
-	background: #cdc2b6;
-	-webkit-tap-highlight-color: transparent;
-	.label {
-		color: #fff;
-	}
-	.circle {
-		background: #978159;
-		.ring {
-			border: 3px solid #ffff5a;
-		}
-	}
-}
-#reroll {
-	top: 30px;
-}
 .link {
 	a {
 		color: #fff;
 	}
-	position: relative;
-	top: 40px;
+}
+
+
+.checkbox-container {
+	
+	width: 160px;
+	float:right;
+	position: absolute;
+	margin-left: 10px;
+	top: -60px;
+	.checkbox {
+		margin-bottom: 3px;
+	}
 }

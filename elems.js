@@ -11,10 +11,11 @@ var set = container.getElementsByClassName('set')[0];
 var level = container.getElementsByClassName('level')[0];
 var substats = container.getElementsByClassName('substats')[0];
 var reroll = document.getElementById("reroll");
+var enhancedReroll = document.getElementById("enhancedReroll");
 var enhance = document.getElementById("enhance");
 var number = document.getElementById("number");
 var up = document.querySelector('.levelup .up')
 var down = document.querySelector('.levelup .down');
 var updown = document.querySelector('.levelup .updown');
 
-export { container,name,image,piece,mainstat,rarity,set,level,substats,reroll,enhance,number,up,down,updown };
+export { container,name,image,piece,mainstat,rarity,set,level,substats,reroll,enhance,enhancedReroll,number,up,down,updown };
