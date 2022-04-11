@@ -137,6 +137,9 @@ body{
 		top: 26px;
 		font-size: 23px;
 
+		@media only screen and (max-width: 500px) {
+			padding-top: 1px;
+		}
 	}
 	.substats {
 		color:  #556;

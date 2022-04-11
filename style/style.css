@@ -133,6 +133,11 @@ body {
   top: 26px;
   font-size: 23px;
 }
+@media only screen and (max-width: 500px) {
+  .bottom .level {
+    padding-top: 1px;
+  }
+}
 .bottom .substats {
   color: #556;
   position: relative;
