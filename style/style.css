@@ -31,6 +31,10 @@ body {
 .container .backdrop {
   opacity: 0.2;
   position: absolute;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   background-blend-mode: color;
   height: 225px;
   right: 0px;
@@ -47,6 +51,12 @@ body {
   .header {
     font-size: 28px;
   }
+}
+.header .artifact-border {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .header .artifact-border div, .header .artifact-border img {
   filter: blur(0.4px);

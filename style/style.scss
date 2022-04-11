@@ -32,6 +32,7 @@ body{
 	.backdrop {
 		opacity: 0.2;
 		position:absolute;	
+		user-select: none;
 		background-blend-mode: color;
 		height: 225px;
 		right: 0px;
@@ -52,6 +53,7 @@ body{
 	}
 	
 	.artifact-border {
+		user-select: none;
 			div, img {
 			filter: blur(0.4px);
 			height: 58px;
