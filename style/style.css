@@ -80,7 +80,7 @@ body {
 
 .top {
   height: 220px;
-  border-bottom: 5px solid #916f4e;
+  border-bottom: 5px solid #886a51;
   padding-left: 24px;
 }
 .top .piece {
@@ -146,7 +146,7 @@ body {
 .bottom .substats {
   color: #556;
   position: relative;
-  top: 39px;
+  top: 42px;
   font-size: 25px;
   letter-spacing: -1px;
 }
@@ -156,7 +156,7 @@ body {
   }
 }
 .bottom .substats .stat {
-  padding-top: 9px;
+  padding-top: 8px;
 }
 .bottom .substats .stat::before {
   padding-left: 6px;
@@ -166,13 +166,13 @@ body {
 }
 .bottom .set {
   position: relative;
-  top: 50px;
-  color: #5db257;
-  font-size: 26px;
+  top: 51px;
+  color: #5cb256;
+  font-size: 24px;
 }
 
 .top[rarity="5"] {
-  background: linear-gradient(340deg, rgba(0, 0, 0, 0) 5%, rgba(105, 84, 83, 0.8) 100%), linear-gradient(315deg, rgba(0, 0, 0, 0) 5%, rgba(105, 84, 83, 0.8) 100%), #e3ab51;
+  background: linear-gradient(345deg, rgba(0, 0, 0, 0) 5%, #a4744e 50%, #655151 100%), linear-gradient(325deg, rgba(0, 0, 0, 0) 5%, #a4744e 50%, #655151 100%), #f1ac3f;
 }
 
 .levelup {

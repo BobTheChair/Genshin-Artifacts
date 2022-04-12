@@ -79,8 +79,7 @@ body{
 }
 .top {
 	height: 220px;	
-
-	border-bottom: 5px solid #916f4e;
+	border-bottom: 5px solid #886a51;
 	padding-left: 24px;
 	.piece{
 		position: relative;
@@ -143,7 +142,7 @@ body{
 	.substats {
 		color:  #556;
 		position: relative;
-		top: 39px;
+		top: 42px;
 		font-size: 25px;
 		letter-spacing: -1px;
 
@@ -152,7 +151,7 @@ body{
 		}
 
 		.stat {
-			padding-top: 9px;
+			padding-top: 8px;
 		}
 		.stat::before {
 			padding-left: 6px;
@@ -164,17 +163,17 @@ body{
 
 	.set {
 		position: relative;
-		top: 50px;
-		color: #5db257;
-		font-size: 26px;
+		top: 51px;
+		color: #5cb256;
+		font-size: 24px;
 	}
 }
 
 .top[rarity="5"] {
 	background: 
-		linear-gradient(340deg, #0000 5%, #695453cc 100%), 
-		linear-gradient(315deg, #0000 5%, #695453cc 100%),
-		#e3ab51;
+		linear-gradient(345deg, #0000 5%, #a4744e 50%, #655151 100%), 
+		linear-gradient(325deg, #0000 5%, #a4744e 50%, #655151 100%),
+		#f1ac3f;
 }
 
 

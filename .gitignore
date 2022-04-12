@@ -1,4 +1,5 @@
 media/wget.exe
+media/test
 
 node_modules/
 references/
@@ -6,3 +7,4 @@ references/
 package-lock.json
 package.json
 test.js
+data.min.json
