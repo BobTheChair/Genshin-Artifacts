@@ -1,5 +1,5 @@
 # Genshin-Artifacts
-https://bobthechair.github.io/Genshin-Artifacts/
+A preview on github pages https://bobthechair.github.io/Genshin-Artifacts/
 
 
 Main and sub stats in data.json was taken from https://genshin-impact.fandom.com/wiki/Artifacts.
