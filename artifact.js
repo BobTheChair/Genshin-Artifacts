@@ -17,12 +17,13 @@ export class Artifact {
 	piece;
 	mainstat;
 	substats = [];
-	rarity = 5;
+	rarity;
 	level = 0;
 
 	constructor(opts = {}) {
 
-		this.set = opts.set ? opts.set : 'ocean-hued';
+		this.rarity = opts.rartity ? opts.rarity : 5;
+		this.set = opts.set ? opts.set : 'emblemofseveredfate';
 		this.piece = opts.piece ? opts.piece : this.randomPiece();
 		this.mainstat = opts.mainstat ? opts.mainstat : this.randomMainstat();
 		
@@ -48,9 +49,9 @@ export class Artifact {
 	}
 
 	render() {
-		let img =  window.data.artifacts[this.set][this.piece].image;
+		let img =  window.data.artifacts[this.set].images[this.piece];
 		if(elems.image.getAttribute('src') !== img) elems.image.setAttribute('src', img);
-		elems.set.innerText = window.data.artifacts[this.set].set.name;
+		elems.set.innerText = window.data.artifacts[this.set].name;
 		elems.name.innerText =  window.data.artifacts[this.set][this.piece].name;
 		elems.piece.innerText = window.data.en[this.piece];
 		elems.level.innerText = '+'+this.level;
