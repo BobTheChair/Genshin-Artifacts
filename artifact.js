@@ -23,7 +23,7 @@ export class Artifact {
 	constructor(opts = {}) {
 
 		this.rarity = opts.rartity ? opts.rarity : 5;
-		this.set = opts.set ? opts.set : 'emblemofseveredfate';
+		this.set = opts.set ? opts.set : this.randomSet();
 		this.piece = opts.piece ? opts.piece : this.randomPiece();
 		this.mainstat = opts.mainstat ? opts.mainstat : this.randomMainstat();
 		
@@ -88,10 +88,23 @@ export class Artifact {
 		}
 		elems.rarity.innerText = stars; 
 	}
+
+	randomEntry(array) {
+		return array[Math.floor(Math.random() * array.length)];
+	}
 	
+	randomSet() {
+		
+		let set;
+		do {
+			set = this.randomEntry(Object.keys(data.artifacts));
+			console.log(set, data.artifacts[set]);
+		} while(!data.artifacts[set].rarity.includes((this.rarity).toString()))
+		return set;
+	}
+
 	randomPiece() {
-		const types = Object.keys(data.main.rates);
-		return types[Math.floor(Math.random() * types.length)];
+		return this.randomEntry(Object.keys(data.main.rates));
 	}
 
 	getMainstat() {
