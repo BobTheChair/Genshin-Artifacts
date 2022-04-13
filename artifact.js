@@ -110,25 +110,25 @@ export class Artifact {
 	getMainstat() {
 		let mainstat = ["anemo", "cryo", "electro", "geo", "hydro", "pyro"].includes(this.mainstat) ? 'elem' : this.mainstat;
 		return data.main.values[this.rarity][mainstat][this.level];
-	}
-
-	weightedRandom(rates) {
-		let i;
-		let sum = 0;
-		let types = Object.keys(rates);
-		let values = Object.values(rates);
-		let total = values.reduce((partialSum, a) => partialSum + a, 0);
-
-		let r = Math.random();
-
-		for (i in values) {
-		  sum += values[i] / total;
-		  if (r <= sum) return types[i];
 		}
-	  }
 
-	randomMainstat() {
-		return this.weightedRandom(data.main.rates[this.piece]);
+		weightedRandom(rates) {
+			let i;
+			let sum = 0;
+			let types = Object.keys(rates);
+			let values = Object.values(rates);
+			let total = values.reduce((partialSum, a) => partialSum + a, 0);
+
+			let r = Math.random();
+
+			for (i in values) {
+				sum += values[i] / total;
+				if (r <= sum) return types[i];
+			}
+		}
+
+		randomMainstat() {
+			return this.weightedRandom(data.main.rates[this.piece]);
 	}
 
 	roll() {
