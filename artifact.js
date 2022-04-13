@@ -49,6 +49,7 @@ export class Artifact {
 	}
 
 	render() {
+		console.log(this);
 		let img =  window.data.artifacts[this.set].images[this.piece];
 		if(elems.image.getAttribute('src') !== img) elems.image.setAttribute('src', img);
 		elems.set.innerText = window.data.artifacts[this.set].name;
@@ -72,7 +73,6 @@ export class Artifact {
 	renderSubstats() {
 		let str = '';
 		for(let stat of this.substats) {
-			console.log(stat);
 			str += '<div class="stat">';
 			str += window.data.en[stat.type];
 			str += '+' + stat.value.toFixed(window.data.format[stat.type].decimals);

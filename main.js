@@ -34,13 +34,13 @@ window.onload = e => {
 	elems.reroll.addEventListener('click', e => {
 		let opts = {};
 		if(elems.enhancedReroll.checked) opts.level = elems.number.value - 0;
+		opts.set = 'blizzardstrayer';
 		window.art = new Artifact.Artifact(opts);
 		window.art.render();
 	});
 
 	setTimeout(()=>{
 		window.art = new Artifact.Artifact();
-		console.log(window.art);
 		window.art.render();
 	}, 500);
 }
