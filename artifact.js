@@ -1,15 +1,5 @@
 import * as elems from './elems.js';
-
-window.data = {};
-fetch('data.json').then(data=>data.json()).then(json=>{
-	window.data.format=json.format;
-	window.data.main=json.main;
-	window.data.sub=json.sub;
-	window.data.en=json.en;
-});
-fetch('artifacts.json').then(data=>data.json()).then(json=>window.data.artifacts=json);
-
-
+import * as data from './data.js';
 
 export class Artifact {
 
@@ -50,11 +40,11 @@ export class Artifact {
 
 	render() {
 		console.log(this);
-		let img =  window.data.artifacts[this.set].images[this.piece];
+		let img =  data.artifacts[this.set].images[this.piece];
 		if(elems.image.getAttribute('src') !== img) elems.image.setAttribute('src', img);
-		elems.set.innerText = window.data.artifacts[this.set].name;
-		elems.name.innerText =  window.data.artifacts[this.set][this.piece].name;
-		elems.piece.innerText = window.data.en[this.piece];
+		elems.set.innerText = data.artifacts[this.set].name;
+		elems.name.innerText =  data.artifacts[this.set][this.piece].name;
+		elems.piece.innerText = data.en[this.piece];
 		elems.level.innerText = '+'+this.level;
 
 		this.renderMainStat();
@@ -65,18 +55,18 @@ export class Artifact {
 	renderMainStat() {
 		let mainstat = ["anemo", "cryo", "electro", "geo", "hydro", "pyro"].includes(this.mainstat) ? 'elem' : this.mainstat;
 
-		elems.mainstat.type.innerText = window.data.en[this.mainstat];
-		let value = this.getMainstat().toFixed(window.data.format[mainstat].decimals);
-		elems.mainstat.value.innerText = value + window.data.format[mainstat].suffix;
+		elems.mainstat.type.innerText = data.en[this.mainstat];
+		let value = this.getMainstat().toFixed(data.format[mainstat].decimals);
+		elems.mainstat.value.innerText = value + data.format[mainstat].suffix;
 	}
 
 	renderSubstats() {
 		let str = '';
 		for(let stat of this.substats) {
 			str += '<div class="stat">';
-			str += window.data.en[stat.type];
-			str += '+' + stat.value.toFixed(window.data.format[stat.type].decimals);
-			str += window.data.format[stat.type].suffix;
+			str += data.en[stat.type];
+			str += '+' + stat.value.toFixed(data.format[stat.type].decimals);
+			str += data.format[stat.type].suffix;
 			str += '</div>';
 		}
 		elems.substats.innerHTML = str;
@@ -94,11 +84,9 @@ export class Artifact {
 	}
 	
 	randomSet() {
-		
 		let set;
 		do {
 			set = this.randomEntry(Object.keys(data.artifacts));
-			console.log(set, data.artifacts[set]);
 		} while(!data.artifacts[set].rarity.includes((this.rarity).toString()))
 		return set;
 	}
@@ -132,7 +120,7 @@ export class Artifact {
 	}
 
 	roll() {
-		let values = window.data.sub.values;
+		let values = data.sub.values;
 		let rates = {};
 
 		if(this.substats.length < 4) {
@@ -168,11 +156,11 @@ export class Artifact {
 		let roll = this.roll();
 		if(this.substats.length < 4) {
 			this.substats.push(roll);
-			if(levelup) console.log(roll.type, 0, '->', roll.value.toFixed(window.data.format[roll.type].decimals ));
+			if(levelup) console.log(roll.type, 0, '->', roll.value.toFixed(data.format[roll.type].decimals ));
 		} else {
 			let stat = this.substats.filter(s=>s.type === roll.type);
-			console.log(roll.type, stat[0].value.toFixed(window.data.format[roll.type].decimals),
-			 '->' , (stat[0].value + roll.value).toFixed(window.data.format[roll.type].decimals) );
+			console.log(roll.type, stat[0].value.toFixed(data.format[roll.type].decimals),
+			 '->' , (stat[0].value + roll.value).toFixed(data.format[roll.type].decimals) );
 			stat[0].value += roll.value;
 		}
 	}

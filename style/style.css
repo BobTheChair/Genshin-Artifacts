@@ -4,28 +4,26 @@
   src: url("../media/Genshin_Impact_Font.woff") format("woff");
 }
 body {
+  color: #eee;
   font-family: "Genshin", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #333;
+  background: #333;
   margin: 0 0 0 0;
+  letter-spacing: -1px;
 }
 
 .container {
-  /*opacity: 0.5;*/
-  height: auto;
-  color: #eee;
+  text-align: left;
   position: absolute;
-  left: 50%;
-  top: 22px;
-  margin-left: -246px;
+  margin-top: 1%;
   width: 492px;
+  left: calc(50% - 246px);
   /*left: 261px; /*overlap screenshot*/
   /*left: 430px; /*next to the screenshot*/
 }
 @media only screen and (max-width: 500px) {
   .container {
-    top: 1%;
-    margin-left: -49%;
     width: 98%;
+    left: 1%;
   }
 }
 .container .backdrop {
@@ -63,19 +61,21 @@ body {
   height: 58px;
   position: absolute;
 }
-.header .artifact-border-middle {
+.header .artifact-border .artifact-border-middle {
   filter: blur(0.4px);
   width: 98%;
   left: 1%;
 }
-.header .artifact-border-right {
+.header .artifact-border .artifact-border-right {
   right: 0px;
   transform: rotateY(180deg);
 }
 .header .name {
-  position: absolute;
-  top: 9px;
-  left: 24px;
+  padding-top: 10px;
+  padding-left: 24px;
+  max-height: 100%;
+  font-size: 32px;
+  vertical-align: center;
 }
 
 .top {
@@ -84,6 +84,7 @@ body {
   padding-left: 24px;
 }
 .top .piece {
+  letter-spacing: 0px;
   position: relative;
   top: 12px;
   font-size: 20px;
@@ -109,6 +110,7 @@ body {
   font-size: 20px;
 }
 .top .mainstat .value {
+  letter-spacing: 0px;
   font-size: 45px;
 }
 .top .rarity {
@@ -148,7 +150,6 @@ body {
   position: relative;
   top: 42px;
   font-size: 25px;
-  letter-spacing: -1px;
 }
 @media only screen and (max-width: 500px) {
   .bottom .substats {
@@ -245,6 +246,11 @@ body {
   background: #978159;
 }
 
+.link {
+  left: 14px;
+  position: absolute;
+  top: calc(100% - 20px);
+}
 .link a {
   color: #fff;
 }
@@ -258,4 +264,20 @@ body {
 }
 .checkbox-container .checkbox {
   margin-bottom: 3px;
+}
+
+.settings {
+  position: absolute;
+  left: calc(50% + 246px);
+  margin-left: 20px;
+}
+.settings label {
+  text-align: right;
+  min-width: 60px;
+  display: inline-block;
+}
+@media only screen and (max-width: 500px) {
+  .settings {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */

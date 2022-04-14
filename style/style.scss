@@ -8,25 +8,27 @@ $font-family: "Genshin","Helvetica Neue",Helvetica,Arial,sans-serif;
 	src: url('../media/Genshin_Impact_Font.woff') format('woff');
 }
 
-body{
-	font-family: $font-family;
-	background-color: $bg-color;
-	margin: 0 0 0 0;
-}
-.container {
-	/*opacity: 0.5;*/
-	height: auto;
-	color: $color;
-	position: absolute;
-	left: 50%;
-	top: 22px;
-	margin-left: -246px;
-	width: 492px;
+$containerWidth: 492px;
 
+body{
+	color: $color;
+	font-family: $font-family;
+	background: $bg-color;
+	margin: 0 0 0 0;
+	letter-spacing: -1px;
+}
+.container {   
+	text-align: left;
+	position: absolute;
+	margin-top: 1%;
+	
+	width: $containerWidth;
+	left: calc(50% - $containerWidth / 2);
+	
+	
 	@media only screen and (max-width: 500px) {
-		top: 1%;
-		margin-left: -49%;
 		width: 98%;
+		left: calc(50% - 98% / 2);
 	}
 	
 	.backdrop {
@@ -54,27 +56,27 @@ body{
 	
 	.artifact-border {
 		user-select: none;
-			div, img {
+		div, img {
 			filter: blur(0.4px);
 			height: 58px;
 			position: absolute;
 		}
-	}
-	.artifact-border-middle {
-		filter: blur(0.4px);
-		width: 98%;
-		left: 1%;
-	}
-	.artifact-border-right {
-		right: 0px;
-		transform: rotateY(180deg);
+		.artifact-border-middle {
+			filter: blur(0.4px);
+			width: 98%;
+			left: 1%;
+		}
+		.artifact-border-right {
+			right: 0px;
+			transform: rotateY(180deg);
+		}
 	}
 	.name {
-		position: absolute;
-		top: 9px;
-		left: 24px;
-
-		
+		padding-top: 10px;
+		padding-left: 24px;
+		max-height: 100%;
+		font-size: 32px;
+		vertical-align: center;	
 	}
 }
 .top {
@@ -82,6 +84,7 @@ body{
 	border-bottom: 5px solid #886a51;
 	padding-left: 24px;
 	.piece{
+		letter-spacing: 0px;
 		position: relative;
 		top: 12px;
 		font-size: 20px;
@@ -105,6 +108,7 @@ body{
 			font-size: 20px;
 		}
 		.value {
+			letter-spacing: 0px;
 			font-size: 45px;
 		}
 	}
@@ -144,7 +148,6 @@ body{
 		position: relative;
 		top: 42px;
 		font-size: 25px;
-		letter-spacing: -1px;
 
 		@media only screen and (max-width: 500px) {
 			font-size: 24px;
@@ -245,6 +248,9 @@ body{
 }
 
 .link {
+	left: 14px;
+	position: absolute;
+	top: calc(100% - 20px);
 	a {
 		color: #fff;
 	}
@@ -259,5 +265,21 @@ body{
 	top: -60px;
 	.checkbox {
 		margin-bottom: 3px;
+	}
+}
+
+.settings {
+	position: absolute;
+	left: calc(50% + $containerWidth / 2);
+	margin-left: 20px;
+
+	label {
+		text-align: right;
+		min-width: 60px;
+		display: inline-block;
+	}
+	
+	@media only screen and (max-width: 500px) {
+		display: none;
 	}
 }

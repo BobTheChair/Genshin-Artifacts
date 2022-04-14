@@ -18,4 +18,8 @@ var up = document.querySelector('.levelup .up')
 var down = document.querySelector('.levelup .down');
 var updown = document.querySelector('.levelup .updown');
 
-export { container,name,image,piece,mainstat,rarity,set,level,substats,reroll,enhance,enhancedReroll,number,up,down,updown };
+var settings = {
+	set: document.querySelector('[name="set"]'),
+	piece: document.querySelector('[name="piece"]')
+} 
+export { container,name,image,piece,mainstat,rarity,set,level,substats,reroll,enhance,enhancedReroll,number,up,down,updown, settings};
