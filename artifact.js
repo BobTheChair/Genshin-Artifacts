@@ -72,11 +72,11 @@ export class Artifact {
 		elems.substats.innerHTML = str;
 	}
 	renderRarity() {
-		let stars = '';
+		let stars = [];
 		for(let i = 0; i < this.rarity; i++) {
-			stars += '*';
+			stars.push('<span class="material-icons-round">star</span>');
 		}
-		elems.rarity.innerText = stars; 
+		elems.rarity.innerHTML = stars.join(''); 
 	}
 
 	randomEntry(array) {

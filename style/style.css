@@ -115,10 +115,12 @@ body {
 }
 .top .rarity {
   color: #ffcc32;
-  font-size: 60px;
   position: relative;
   top: 70px;
-  letter-spacing: 5px;
+}
+.top .rarity span {
+  letter-spacing: -7px;
+  font-size: 40px;
 }
 
 .bottom {

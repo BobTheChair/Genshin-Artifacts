@@ -112,12 +112,15 @@ body{
 			font-size: 45px;
 		}
 	}
-	.rarity {
+	.rarity{
 		color: $yellow;
-		font-size: 60px;
 		position: relative;
 		top: 70px;
-		letter-spacing: 5px;
+		
+		span {
+			letter-spacing: -7px;
+			font-size: 40px;
+		}
 	}
 }
 
