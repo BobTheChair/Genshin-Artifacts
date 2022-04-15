@@ -166,8 +166,15 @@ details.select summary::-webkit-details-marker {
 }
 details.select summary:after {
   float: right;
-  color: #38434e;
-  content: "-";
+  /*color: $dark-color;*/
+  /*google why does this icon not do shit?*/
+  /*content: '\e5cf';*/
+  content: "";
+  /* look what you made me do */
+  background: linear-gradient(315deg, #38434e 50%, rgba(0, 0, 0, 0) 50%);
+  transform: rotate(45deg);
+  width: 14px;
+  height: 14px;
 }
 details.select ul {
   z-index: 2;
