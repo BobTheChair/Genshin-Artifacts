@@ -74,6 +74,9 @@ body {
   max-height: 100%;
   font-size: 32px;
   vertical-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 90%;
 }
 
 .top {

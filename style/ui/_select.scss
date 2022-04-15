@@ -17,6 +17,9 @@ details.select {
 	summary.radios {
 		list-style: none;
 		counter-reset: radios;
+		max-width: 270px;
+		white-space: nowrap;
+		overflow: hidden;
 		
 		input[type=radio] {
 			counter-increment: radios;
@@ -40,7 +43,6 @@ details.select {
 			display: inline;
 			color: $dark-color;
 		}
-
 	}
 		
 	summary::-webkit-details-marker {
@@ -48,6 +50,8 @@ details.select {
 	}
 	summary:after {
 		float: right;
+		position: absolute;
+		right: 20px;
 		/*color: $dark-color;*/
 		/*google why does this icon not do shit?*/
 		/*content: '\e5cf';*/
@@ -71,13 +75,12 @@ details.select {
 		background: #495366;
 		max-height: 400px;
 		overflow-y: scroll;
-			
 		
 		label {
 			width: 100%;
 			cursor: pointer;
-				
 			li {
+				white-space: nowrap;
 				user-select: none;
 				border-radius: 30px;
 				padding: 12px;
@@ -89,15 +92,12 @@ details.select {
 			background: #606979;
 		}
 	}
-	
-
 }
 
 details.select:active, details.select:hover {
 	outline: 3px solid white;
 	box-shadow: 0 0 6px white;
 }
-
 
 details[open] {
 	z-index: 1;
@@ -111,5 +111,4 @@ details[open] {
 		top: 0;
 		left: 0;
 	}
-	
 }
