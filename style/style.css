@@ -17,8 +17,6 @@ body {
   margin-top: 1%;
   width: 492px;
   left: calc(50% - 246px);
-  /*left: 261px; /*overlap screenshot*/
-  /*left: 430px; /*next to the screenshot*/
 }
 @media only screen and (max-width: 500px) {
   .container {
@@ -274,7 +272,6 @@ body {
   margin-left: 20px;
 }
 .settings label {
-  text-align: right;
   min-width: 60px;
   display: inline-block;
 }

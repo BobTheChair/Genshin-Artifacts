@@ -1,55 +1,7 @@
-.checkbox-container {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  position: relative;
-  display: inline-block;
+@font-face {
+  font-family: "Genshin";
+  src: url("../media/Genshin_Impact_Font.woff") format("woff");
 }
-.checkbox-container .checkbox {
-  display: inline-block;
-  width: 78px;
-  height: 35px;
-  border-radius: 22px;
-  outline: 2px solid #e9e3d7;
-  border: 3px solid #293443;
-  background: #353d4f;
-  transition: background-color 0.1s, outline-color 0.1s;
-}
-.checkbox-container .checkbox .checkmark {
-  height: 35px;
-  width: 35px;
-  border-radius: 19px;
-  background: #ece5d8;
-  color: #d3bc8e;
-  box-shadow: 0 0 6px #e9e3d7;
-  transition: margin 0.1s, background-color 0.1s, color 0.1s;
-}
-.checkbox-container .checkbox .checkmark .icon::before {
-  /*material icon "close" */
-  padding-left: 3px;
-  line-height: 1.3;
-  font-size: 28px;
-  font-weight: bold;
-  content: "\e5cd";
-}
-.checkbox-container input[type=checkbox]:checked ~ .checkbox {
-  border-color: #c1a77c;
-  background: #d3bc8e;
-}
-.checkbox-container input[type=checkbox]:checked ~ .checkbox .checkmark {
-  margin: 0 0 0 43px;
-  background: #fff6dd;
-  color: #7f8b9c;
-}
-.checkbox-container input[type=checkbox]:checked ~ .checkbox .checkmark .icon::before {
-  /*material icon "check" */
-  content: "\e5ca";
-}
-.checkbox-container input[type=checkbox] {
-  display: none;
-}
-
 .button {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -118,4 +70,172 @@
 }
 .button:active .circle .ring {
   border: 3px solid #ffff5a;
+}
+
+.checkbox-container {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: relative;
+  display: inline-block;
+}
+.checkbox-container .checkbox {
+  display: inline-block;
+  width: 78px;
+  height: 35px;
+  border-radius: 22px;
+  outline: 2px solid #e9e3d7;
+  border: 3px solid #293443;
+  background: #353d4f;
+  transition: background-color 0.1s, outline-color 0.1s;
+}
+.checkbox-container .checkbox .checkmark {
+  height: 35px;
+  width: 35px;
+  border-radius: 19px;
+  background: #ece5d8;
+  color: #d3bc8e;
+  box-shadow: 0 0 6px #e9e3d7;
+  transition: margin 0.1s, background-color 0.1s, color 0.1s;
+}
+.checkbox-container .checkbox .checkmark .icon::before {
+  /*material icon "close" */
+  padding-left: 3px;
+  line-height: 1.3;
+  font-size: 28px;
+  font-weight: bold;
+  content: "\e5cd";
+}
+.checkbox-container input[type=checkbox]:checked ~ .checkbox {
+  border-color: #c1a77c;
+  background: #d3bc8e;
+}
+.checkbox-container input[type=checkbox]:checked ~ .checkbox .checkmark {
+  margin: 0 0 0 43px;
+  background: #fff6dd;
+  color: #7f8b9c;
+}
+.checkbox-container input[type=checkbox]:checked ~ .checkbox .checkmark .icon::before {
+  /*material icon "check" */
+  content: "\e5ca";
+}
+.checkbox-container input[type=checkbox] {
+  display: none;
+}
+
+details.select {
+  letter-spacing: 0px;
+  position: relative;
+  width: 300px;
+  font-size: 20px;
+  height: 20px;
+  padding: 15px;
+  padding-left: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  background: #e4ded2;
+}
+details.select summary.radios {
+  list-style: none;
+  counter-reset: radios;
+}
+details.select summary.radios input[type=radio] {
+  counter-increment: radios;
+  pointer-events: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: none;
+}
+details.select summary.radios input[type=radio]:checked {
+  display: inline;
+}
+details.select summary.radios input[type=radio]:checked + ul > li {
+  background-color: #606979;
+}
+details.select summary.radios input[type=radio]:after {
+  font-family: "Genshin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  content: attr(title);
+  display: inline;
+  color: #38434e;
+}
+details.select summary::-webkit-details-marker {
+  display: none;
+}
+details.select summary:after {
+  float: right;
+  color: #38434e;
+  content: "-";
+}
+details.select ul {
+  z-index: 2;
+  margin-top: 10px;
+  padding-left: 0px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  padding: 5px;
+  border-radius: 30px;
+  box-sizing: border-box;
+  background: #495366;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+details.select ul label {
+  width: 100%;
+  cursor: pointer;
+}
+details.select ul label li {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 30px;
+  padding: 12px;
+  padding-left: 20px;
+  list-style: none;
+}
+details.select ul label:hover li {
+  background: #606979;
+}
+
+details.select:active, details.select:hover {
+  outline: 3px solid white;
+  box-shadow: 0 0 6px white;
+}
+
+details[open] {
+  z-index: 1;
+}
+details[open] summary:before {
+  content: "";
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #5d6260;
+  border-radius: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
 }/*# sourceMappingURL=ui.css.map */

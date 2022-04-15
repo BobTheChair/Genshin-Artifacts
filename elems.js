@@ -19,7 +19,13 @@ var down = document.querySelector('.levelup .down');
 var updown = document.querySelector('.levelup .updown');
 
 var settings = {
-	set: document.querySelector('[name="set"]'),
-	piece: document.querySelector('[name="piece"]')
+	set: {
+		elem: document.querySelector('.setting .set'), 
+		value: elem => elem.querySelector('.radios :checked').id.split('-')[1]
+	},
+	piece: {
+		elem: document.querySelector('.setting .piece'),
+		value: elem => elem.querySelector('.radios :checked').id.split('-')[1]
+	}
 } 
 export { container,name,image,piece,mainstat,rarity,set,level,substats,reroll,enhance,enhancedReroll,number,up,down,updown, settings};

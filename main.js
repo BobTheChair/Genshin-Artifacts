@@ -33,21 +33,39 @@ elems.reroll.addEventListener('click', e => {
 	let opts = {};
 	if(elems.enhancedReroll.checked) opts.level = elems.number.value - 0;
 	for(let [setting, input] of Object.entries(elems.settings)) {
-		opts[setting] = input.value;
+		let val = input.value(input.elem);
+		opts[setting] = !val || val === 'random' ? undefined : val;
 	}
-	if(elems.settings.set.value);
+	
+	console.log(opts)
 	window.art = new Artifact(opts);
 	window.art.render();
 });
 
+function populateSelect(elem, content, value, text) {
+	console.log(elem)
+	let ul = elem.querySelector('ul');
+	let radios = elem.querySelector('.radios');
+	let name = radios.querySelector('input').getAttribute('name');
+	for(let [k, c] of content) {
+		let radio = document.createElement('input');
+		radio.setAttribute('type', 'radio');
+		radio.setAttribute('name', name);
+		radio.setAttribute('title', text(k,c));
+		radio.id = name + '-' + value(k, c);
 
-for(let [key,set] of Object.entries(data.artifacts)) {
-	elems.settings.set.appendChild(new Option(set.name, key))
-}
-for(let piece of Object.keys(data.main.rates)) {
-	elems.settings.piece.appendChild(new Option(data.en[piece], piece))
+		radios.appendChild(radio);
+		let label = document.createElement('label');
+		let li = document.createElement('li');;
+		li.innerText = text(k, c),
+		label.setAttribute('for', name + '-' + value(k, c))
+		label.appendChild(li)
+		ul.appendChild(label);
+	}
 }
 
+populateSelect(elems.settings.set.elem, Object.entries(data.artifacts), key => key, (key, set) => set.name);
+populateSelect(elems.settings.piece.elem, Object.entries(data.main.rates), piece => piece, piece => data.en[piece]);
 
 window.art = new Artifact();
 window.art.render();

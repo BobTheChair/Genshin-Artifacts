@@ -11,6 +11,12 @@
 	<link rel="stylesheet" href="style/ui.css">
 </head>
 <body>
+	<!--img src="references/select-active.png" alt="">
+	<img src="references/select-hover.png" alt="">
+	<img src="references/select-active.png" alt="">
+	<img src="references/select-scrollwheel.png" alt="">
+	<img src="references/settings-select.png" alt=""-->
+
 	<div class="container">
 		<img class="backdrop" src="media/backdrop-mono.png">
 		<div class="header">
@@ -59,12 +65,19 @@
 
 	<div class="settings">
 		<div class="setting">
-			<label for="Set">Set</label>
-			<select name="set"><option value="">Random</option></select>
+			<span>Set</span>
+			<details class="set select">
+				<summary class="radios"><input type="radio" name="set" title="Random" id="set-random" checked></summary>
+				<ul class="select-options"><label for="set-random"><li>Random</li></label></ul>
+			</details>
 		</div>
+				
 		<div class="setting">
-			<label for="piece">Piece</label>
-			<select name="piece"><option value="">Random</option></select>
+			<span>Piece</span>
+			<details class="piece select">
+				<summary class="radios"><input type="radio" name="piece" title="Random" id="piece-random" checked></summary>
+				<ul class="select-options"><label for="piece-random"><li>Random</li></label></ul>
+			</details>
 		</div>
 	</div>
 	

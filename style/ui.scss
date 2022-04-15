@@ -2,133 +2,34 @@ $bg-color: #333;
 $color: #eee;
 $yellow: #ffcc32;
 
-.checkbox-container {
-	user-select: none;
-	position: relative;
-	display: inline-block;
-	.checkbox {
-		display: inline-block;
-		width: 78px;
-		height: 35px;
-	
-		border-radius: 22px;
-		outline: 2px solid #e9e3d7;
-		
-		border: 3px solid #293443;
-		background: #353d4f;
-
-		transition: background-color 0.1s, outline-color 0.1s;
-		.checkmark {
-			height: 35px;
-			width: 35px;
-			border-radius: 19px;
-			
-			background: #ece5d8;
-			color: #d3bc8e;
-			box-shadow: 0 0 6px #e9e3d7;
-
-			transition: margin 0.1s, background-color 0.1s, color 0.1s;
-
-		
-			.icon::before {
-				/*material icon "close" */
-				padding-left: 3px;
-				line-height: 1.30;
-				font-size: 28px;
-				font-weight: bold;
-				content: "\e5cd";
-			}
-		}
-	}
-
-	input[type="checkbox"]:checked ~ {
-		.checkbox {			
-			border-color: #c1a77c;
-			background: #d3bc8e;
-				
-			.checkmark {
-				margin: 0 0 0 43px;
-				background: #fff6dd;
-				color: #7f8b9c;
-
-				.icon::before {
-					/*material icon "check" */
-					content: "\e5ca";
-				}
-			}
-		}
-	}
-
-	input[type="checkbox"] {
-		display: none;
-	}
+$font-family: "Genshin","Helvetica Neue",Helvetica,Arial,sans-serif;
+@font-face {
+	font-family: "Genshin";
+	src: url('../media/Genshin_Impact_Font.woff') format('woff');
 }
 
-.button {
-	user-select: none;
-	background-color: #e4ded2;
-	cursor: pointer;
-	height: 62px;
-	border-radius: 31px;
-	width: 300px;
-	font-size: 28px;
-	color: #38434e;
-	
-	position: relative;
 
-	
-	@media only screen and (max-width: 500px) {
-		width: 200px;
-	}
-	
-	.circle {
-		display: inline-block;
-		position: relative;
-		top: 11px;
-		left: 11px;
-		height: 40px;
-		width: 40px;
-		border-radius: 20px;
-		background: #38434e;
-		.ring {
-			position: relative;
-			top: 9px;
-			left: 9px;
-			height: 16px;
-			width: 16px;
-			border-radius: 15px;
-			border: 3px solid $yellow;
-		}
-	}
-	
-	.label {
-		display: inline-block;
+@import './ui/_button.scss';
+@import './ui/_checkbox.scss';
+@import './ui/_select.scss';
 
-		position: relative;
-		left: 80px;
-			
-		@media only screen and (max-width: 500px) {
-			left: 34px;
-		}
-	}
+
+::-webkit-scrollbar {
+	width: 6px;
 }
 
-.button:hover {
-	outline: 3px solid white;
-	box-shadow: 0 0 6px white;
+::-webkit-scrollbar-track {
+	background: #5d6260;
+	border-radius: 6px;
 }
-.button:active {
-	box-shadow: 0 0 8px white;
-	outline: 3px solid #888;
-	background: #cdc2b6;
-	-webkit-tap-highlight-color: transparent;
-	.label {
-		color: #fff;
-	}
-	.circle {
-		background: #978159;
-		.ring {
-			border: 3px solid #ffff5a;
-		}
-	}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888;
+border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #aaa;
 }
