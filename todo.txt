@@ -1,0 +1,14 @@
+todo list i guess???
+
+settins on mobile
+
+more settings
+-rarity
+-pick mainstat
+-pick substats
+-lock settings based the other selected settings
+--add an option to allow impossible combinations, like 5 star adventurers set with healing bonus on a flower
+
+probably make a better select
+
+show upgraded substats similar to when you upgrade an artifact ingame
