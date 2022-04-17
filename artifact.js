@@ -19,12 +19,7 @@ export class Artifact {
 		
 		if(opts.substats) {
 			this.level = opts.level ? opts.level : 0;
-			this.substats = [
-				{type: 'cr', value:7.8},
-				{type: 'er', value: 5.2},
-				{type: 'atk', value: 29},
-				{type: 'def-p', value: 18.2}
-			];
+			this.substats = opts.substats;
 		} else {
 			this.upgrade();
 			this.upgrade();
@@ -73,8 +68,10 @@ export class Artifact {
 	}
 	renderRarity() {
 		let stars = [];
+		//google material icons star
+		let star = '<span class="material-icons-round">star</span>';
 		for(let i = 0; i < this.rarity; i++) {
-			stars.push('<span class="material-icons-round">star</span>');
+			stars.push(star);
 		}
 		elems.rarity.innerHTML = stars.join(''); 
 	}
@@ -85,9 +82,11 @@ export class Artifact {
 	
 	randomSet() {
 		let set;
+		//convert to string because the json contains strings
+		let rarity = (this.rarity).toString();
 		do {
 			set = this.randomEntry(Object.keys(data.artifacts));
-		} while(!data.artifacts[set].rarity.includes((this.rarity).toString()))
+		} while(!data.artifacts[set].rarity.includes(rarity))
 		return set;
 	}
 
@@ -98,25 +97,25 @@ export class Artifact {
 	getMainstat() {
 		let mainstat = ["anemo", "cryo", "electro", "geo", "hydro", "pyro"].includes(this.mainstat) ? 'elem' : this.mainstat;
 		return data.main.values[this.rarity][mainstat][this.level];
+	}
+
+	weightedRandom(rates) {
+		let i;
+		let sum = 0;
+		let types = Object.keys(rates);
+		let values = Object.values(rates);
+		let total = values.reduce((partialSum, a) => partialSum + a, 0);
+
+		let r = Math.random();
+
+		for (i in values) {
+			sum += values[i] / total;
+			if (r <= sum) return types[i];
 		}
+	}
 
-		weightedRandom(rates) {
-			let i;
-			let sum = 0;
-			let types = Object.keys(rates);
-			let values = Object.values(rates);
-			let total = values.reduce((partialSum, a) => partialSum + a, 0);
-
-			let r = Math.random();
-
-			for (i in values) {
-				sum += values[i] / total;
-				if (r <= sum) return types[i];
-			}
-		}
-
-		randomMainstat() {
-			return this.weightedRandom(data.main.rates[this.piece]);
+	randomMainstat() {
+		return this.weightedRandom(data.main.rates[this.piece]);
 	}
 
 	roll() {
