@@ -138,7 +138,6 @@ export class Artifact {
 		return {type: type, value: values[type][Math.floor(Math.random() * values[type].length)]};
 	}
 
-
 	enhance(levels) {
 		if(!levels) return;
 		levels = parseInt(levels);
