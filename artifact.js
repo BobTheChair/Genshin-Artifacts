@@ -156,9 +156,9 @@ export class Artifact {
 			this.substats.push(roll);
 			if(levelup) console.log(roll.type, 0, '->', roll.value.toFixed(data.format[roll.type].decimals ));
 		} else {
-			let stat = this.substats.filter(s=>s.type === roll.type);
-			console.log(roll.type, stat[0].value.toFixed(data.format[roll.type].decimals),
-			 '->' , (stat[0].value + roll.value).toFixed(data.format[roll.type].decimals) );
+			let stat = this.substats.filter(s => s.type === roll.type);
+			console.log(roll.type, (stat[0].value).toFixed(data.format[roll.type].decimals),
+				'->', (roll.value + stat[0].value).toFixed(data.format[roll.type].decimals) );
 			stat[0].value += roll.value;
 		}
 	}

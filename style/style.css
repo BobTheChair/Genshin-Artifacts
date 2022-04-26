@@ -11,7 +11,7 @@ body {
   letter-spacing: -1px;
 }
 
-.container {
+.artifact-container {
   text-align: left;
   position: absolute;
   margin-top: 1%;
@@ -19,12 +19,12 @@ body {
   left: calc(50% - 246px);
 }
 @media only screen and (max-width: 500px) {
-  .container {
+  .artifact-container {
     width: 98%;
     left: 1%;
   }
 }
-.container .backdrop {
+.artifact-container .backdrop {
   opacity: 0.2;
   position: absolute;
   -webkit-user-select: none;

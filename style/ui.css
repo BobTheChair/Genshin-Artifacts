@@ -52,12 +52,12 @@
 }
 
 .button:hover {
-  outline: 3px solid white;
-  box-shadow: 0 0 6px white;
+  outline: 3px solid #fff;
+  box-shadow: 0 0 6px #fff;
 }
 
 .button:active {
-  box-shadow: 0 0 8px white;
+  box-shadow: 0 0 8px #fff;
   outline: 3px solid #888;
   background: #cdc2b6;
   -webkit-tap-highlight-color: transparent;
@@ -131,7 +131,7 @@ details.select {
   font-size: 20px;
   height: 20px;
   padding: 15px;
-  padding-left: 20px;
+  padding-left: 25px;
   cursor: pointer;
   border-radius: 30px;
   background: #e4ded2;
@@ -200,6 +200,7 @@ details.select ul label {
   cursor: pointer;
 }
 details.select ul label li {
+  color: #fff;
   white-space: nowrap;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -215,8 +216,8 @@ details.select ul label:hover li {
 }
 
 details.select:active, details.select:hover {
-  outline: 3px solid white;
-  box-shadow: 0 0 6px white;
+  outline: 3px solid #fff;
+  box-shadow: 0 0 6px #fff;
 }
 
 details[open] {
@@ -231,6 +232,49 @@ details[open] summary:before {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+.settings {
+  width: 650px;
+}
+.settings .setting {
+  height: 50px;
+  font-size: 24px;
+  margin-top: 10px;
+  color: #38434e;
+  background: #e4ded2;
+  padding-left: 20px;
+  border-radius: 30px;
+}
+.settings .setting .label {
+  padding-left: 10px;
+  padding-top: 12px;
+  padding-bottom: 15px;
+  display: inline-block;
+}
+.settings .setting .input {
+  display: inline;
+  float: right;
+  background: #cdc2b6;
+  border-radius: 0 25px 25px 0;
+  text-align: center;
+}
+.settings .setting .input::before {
+  left: -125px;
+  top: 0px;
+  position: absolute;
+  content: "";
+  height: 50px;
+  width: 150px;
+  background-image: linear-gradient(to left, rgba(205, 194, 182, 0.2) 0%, rgba(205, 194, 182, 0.2) 16%, rgba(205, 194, 182, 0.2) 16%, rgba(228, 222, 210, 0.2) 33%, rgba(228, 222, 210, 0.5333333333) 33%, rgba(228, 222, 210, 0.5333333333) 66%, rgba(228, 222, 210, 0.8666666667) 66%, rgba(228, 222, 210, 0.8666666667) 100%), url("../media/star.svg"), url("../media/star.svg"), url("../media/star.svg");
+}
+.settings .setting.active, .settings .setting:hover {
+  outline: 3px solid #fff;
+  box-shadow: 0 0 6px #fff;
+}
+.settings details.select:active, .settings details.select:hover {
+  outline: 0px solid #fff;
+  box-shadow: 0 0 0px #fff;
 }
 
 ::-webkit-scrollbar {

@@ -1,15 +1,12 @@
-
-$color: #38434e;
-
 .button {
 	user-select: none;
-	background-color: #e4ded2;
+	background-color: $beige;
 	cursor: pointer;
 	height: 62px;
 	border-radius: 31px;
 	width: 300px;
 	font-size: 28px;
-	color: $color;
+	color: $dark-color;
 	
 	position: relative;
 
@@ -26,7 +23,7 @@ $color: #38434e;
 		height: 40px;
 		width: 40px;
 		border-radius: 20px;
-		background: $color;
+		background: $dark-color;
 		.ring {
 			position: relative;
 			top: 9px;
@@ -51,11 +48,11 @@ $color: #38434e;
 }
 
 .button:hover {
-	outline: 3px solid white;
-	box-shadow: 0 0 6px white;
+	outline: 3px solid #fff;
+	box-shadow: 0 0 6px #fff;
 }
 .button:active {
-	box-shadow: 0 0 8px white;
+	box-shadow: 0 0 8px #fff;
 	outline: 3px solid #888;
 	background: #cdc2b6;
 	-webkit-tap-highlight-color: transparent;

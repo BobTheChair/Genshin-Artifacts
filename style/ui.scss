@@ -1,6 +1,8 @@
 $bg-color: #333;
 $color: #eee;
 $yellow: #ffcc32;
+$beige: #e4ded2;
+$dark-color: #38434e;
 
 $font-family: "Genshin","Helvetica Neue",Helvetica,Arial,sans-serif;
 @font-face {
@@ -13,6 +15,7 @@ $font-family: "Genshin","Helvetica Neue",Helvetica,Arial,sans-serif;
 @import './ui/_checkbox.scss';
 @import './ui/_select.scss';
 
+@import './ui/_settings.scss';
 
 ::-webkit-scrollbar {
 	width: 6px;

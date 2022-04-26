@@ -1,0 +1,62 @@
+.settings {
+
+	width: 650px;
+	.setting {
+		
+		height: 50px;
+		font-size: 24px;
+		margin-top: 10px;
+		
+		color: $dark-color;
+		background: $beige;
+		padding-left: 20px;
+		border-radius: 30px;
+
+		.label {
+			padding-left: 10px;
+			padding-top: 12px;
+			padding-bottom: 15px;
+			display: inline-block;
+		}
+
+		.input {
+			display: inline;
+			float: right;
+			background: #cdc2b6;
+			border-radius: 0 25px 25px 0;	
+			text-align: center;
+		}
+		
+		.input::before{
+			left: -125px;
+			top: 0px;
+			position: absolute;
+			content: '';
+			height: 50px;
+			width: 150px;
+			background-image: linear-gradient(to left, 
+			#cdc2b633 0%,
+			#cdc2b633 16%,
+			#cdc2b633 16%,
+			#e4ded233 33%,
+			#e4ded288 33%,
+			#e4ded288 66%,
+			#e4ded2dd 66%,
+			#e4ded2dd 100%
+			),
+			url('../media/star.svg'),
+			url('../media/star.svg'),
+			url('../media/star.svg');
+		}
+	}	
+		
+	.setting.active, .setting:hover {
+		outline: 3px solid #fff;
+		box-shadow: 0 0 6px #fff;
+	}
+
+	details.select:active, details.select:hover {
+		outline: 0px solid #fff;
+		box-shadow: 0 0 0px #fff;
+	}
+}

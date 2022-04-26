@@ -1,6 +1,9 @@
 $bg-color: #333;
 $color: #eee;
 $yellow: #ffcc32;
+$beige: #e4ded2;
+$dark-color: #38434e;
+
 
 $font-family: "Genshin","Helvetica Neue",Helvetica,Arial,sans-serif;
 @font-face {
@@ -10,21 +13,20 @@ $font-family: "Genshin","Helvetica Neue",Helvetica,Arial,sans-serif;
 
 $containerWidth: 492px;
 
-body{
+body {
 	color: $color;
 	font-family: $font-family;
 	background: $bg-color;
 	margin: 0 0 0 0;
 	letter-spacing: -1px;
 }
-.container {   
+.artifact-container {   
 	text-align: left;
 	position: absolute;
 	margin-top: 1%;
 	
 	width: $containerWidth;
 	left: calc(50% - $containerWidth / 2);
-	
 	
 	@media only screen and (max-width: 500px) {
 		width: 98%;
@@ -126,8 +128,8 @@ body{
 }
 
 .bottom {
-	color: #38434e;
-	background-color: #e4ded2;
+	color: $dark-color;
+	background-color: $beige;
 	padding-left: 32px;
 	height: 300px;
 	position: relative;
@@ -138,7 +140,7 @@ body{
 		height: 27px;
 		padding-left: 2px;
 		border-radius: 5px;
-		background: #38434e;
+		background: $dark-color;
 		position: relative;
 		top: 26px;
 		font-size: 23px;
@@ -196,7 +198,6 @@ body{
 		@media only screen and (max-width: 500px) {
 			width: 240px;
 		}
-
 	}
 	.levels {
 		left: 10px;
@@ -230,7 +231,7 @@ body{
 				
 				padding: 5px 0 0 8px;
 				margin-bottom: 2px;
-				background-color: #38434e;
+				background-color: $dark-color;
 				border-radius: 5px;
 				height: 40px;
 				width: 40px;
@@ -248,7 +249,6 @@ body{
 			background: #978159;
 		}
 	}
-	
 }
 
 .link {

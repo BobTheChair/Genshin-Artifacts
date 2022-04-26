@@ -1,4 +1,4 @@
-var container = document.getElementsByClassName('container')[0];
+var container = document.getElementsByClassName('artifact-container')[0];
 var name = container.getElementsByClassName('name')[0];
 var image = container.getElementsByClassName('image')[0];
 var piece = container.getElementsByClassName('piece')[0];
@@ -28,4 +28,4 @@ var settings = {
 		value: elem => elem.querySelector('.radios :checked').id.split('-')[1]
 	}
 } 
-export { container,name,image,piece,mainstat,rarity,set,level,substats,reroll,enhance,enhancedReroll,number,up,down,updown, settings};
+export { container,name,image,piece,mainstat,rarity,set,level,substats,reroll,enhance,enhancedReroll,number,up,down,updown,settings };
