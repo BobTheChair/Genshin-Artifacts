@@ -32,13 +32,15 @@
   background: #38434e;
 }
 .button .circle .ring {
+  border-radius: 15px;
+  border: 3px solid #ffcc32;
+}
+.button .circle .icon {
   position: relative;
   top: 9px;
   left: 9px;
   height: 16px;
   width: 16px;
-  border-radius: 15px;
-  border: 3px solid #ffcc32;
 }
 .button .label {
   display: inline-block;
@@ -69,6 +71,52 @@
   background: #978159;
 }
 .button:active .circle .ring {
+  border: 3px solid #ffff5a;
+}
+
+.button-no-label {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: #e4ded2;
+  cursor: pointer;
+  width: 58px;
+  height: 58px;
+  border-radius: 31px;
+  font-size: 28px;
+  color: #38434e;
+  outline: 6px solid #bbb;
+  outline-offset: -6px;
+  transition: outline-width 50ms, outline-offset;
+}
+.button-no-label .icon {
+  position: relative;
+  top: 11px;
+  left: 11px;
+  font-size: 36px;
+}
+
+.button-no-label:hover {
+  outline: 3px solid #fff;
+  outline-offset: -3px;
+  box-shadow: 0 0 6px #fff;
+}
+
+.button-no-label:active {
+  box-shadow: 0 0 8px #fff;
+  outline: 0px solid #888;
+  outline-offset: 0px;
+  background: #cdc2b6;
+  -webkit-tap-highlight-color: transparent;
+}
+.button-no-label:active .label {
+  color: #fff;
+}
+.button-no-label:active .circle {
+  background: #978159;
+}
+.button-no-label:active .circle .ring {
   border: 3px solid #ffff5a;
 }
 
@@ -129,14 +177,15 @@ details.select {
   position: relative;
   width: 300px;
   font-size: 20px;
-  height: 20px;
-  padding: 15px;
+  height: 50px;
   padding-left: 25px;
+  padding-right: 15px;
   cursor: pointer;
   border-radius: 30px;
   background: #e4ded2;
 }
 details.select summary.radios {
+  height: 100%;
   list-style: none;
   counter-reset: radios;
   max-width: 270px;
@@ -150,16 +199,24 @@ details.select summary.radios input[type=radio] {
      -moz-appearance: none;
           appearance: none;
   display: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  top: -2px;
+  left: 0px;
+  position: relative;
+  height: 100%;
 }
 details.select summary.radios input[type=radio]:checked {
-  display: inline;
+  display: inline-block;
 }
 details.select summary.radios input[type=radio]:checked + ul > li {
   background-color: #606979;
 }
 details.select summary.radios input[type=radio]:after {
-  font-family: "Genshin", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
+  top: calc(50% - 10px);
+  position: relative;
+  font-family: "Genshin", "Helvetica Neue", Helvetica, Arial, sans-serif;
   content: attr(title);
   display: inline;
   color: #38434e;
@@ -170,6 +227,7 @@ details.select summary::-webkit-details-marker {
 details.select summary:after {
   float: right;
   position: absolute;
+  top: 16px;
   right: 20px;
   /*color: $dark-color;*/
   /*google why does this icon not do shit?*/
@@ -198,26 +256,24 @@ details.select ul {
 details.select ul label {
   width: 100%;
   cursor: pointer;
-}
-details.select ul label li {
+  height: 50px;
   color: #fff;
   white-space: nowrap;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   border-radius: 30px;
-  padding: 12px;
-  padding-left: 20px;
   list-style: none;
 }
-details.select ul label:hover li {
+details.select ul label li {
+  position: relative;
+  top: calc(50% - 10px);
+}
+details.select ul label:hover {
   background: #606979;
 }
 
 details.select:active, details.select:hover {
   outline: 3px solid #fff;
   box-shadow: 0 0 6px #fff;
+  -webkit-tap-highlight-color: transparent;
 }
 
 details[open] {
@@ -234,28 +290,27 @@ details[open] summary:before {
   left: 0;
 }
 
-.settings {
-  width: 650px;
+.settings .setting:first-child {
+  margin-top: 0px;
 }
 .settings .setting {
   height: 50px;
   font-size: 24px;
   margin-top: 10px;
   color: #38434e;
-  background: #e4ded2;
+  background: #ece5d8;
   padding-left: 20px;
   border-radius: 30px;
 }
 .settings .setting .label {
   padding-left: 10px;
   padding-top: 12px;
-  padding-bottom: 15px;
   display: inline-block;
 }
 .settings .setting .input {
   display: inline;
   float: right;
-  background: #cdc2b6;
+  background: #d8cdb9;
   border-radius: 0 25px 25px 0;
   text-align: center;
 }
@@ -266,7 +321,53 @@ details[open] summary:before {
   content: "";
   height: 50px;
   width: 150px;
-  background-image: linear-gradient(to left, rgba(205, 194, 182, 0.2) 0%, rgba(205, 194, 182, 0.2) 16%, rgba(205, 194, 182, 0.2) 16%, rgba(228, 222, 210, 0.2) 33%, rgba(228, 222, 210, 0.5333333333) 33%, rgba(228, 222, 210, 0.5333333333) 66%, rgba(228, 222, 210, 0.8666666667) 66%, rgba(228, 222, 210, 0.8666666667) 100%), url("../media/star.svg"), url("../media/star.svg"), url("../media/star.svg");
+  background-image: url("../media/star-fade.svg");
+  background-size: contain;
+}
+@media only screen and (max-width: 500px) {
+  .settings .setting .input::before {
+    height: 30px;
+    width: 90px;
+    left: -75px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .settings .setting {
+    height: 30px;
+    font-size: 16px;
+    padding-left: 20px;
+    border-radius: 30px;
+  }
+  .settings .setting .label {
+    padding-left: 0px;
+    padding-top: 6px;
+  }
+  .settings .setting .input.select {
+    height: 30px;
+    width: 200px;
+  }
+  .settings .setting details.select summary:after {
+    top: 6px;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+  }
+  .settings .setting details.select summary.radios input[type=radio]:after {
+    font-size: 16px;
+    top: 5px;
+  }
+  .settings .setting details.select ul {
+    margin-top: 0px;
+    overflow-x: hidden;
+    padding-top: 2px;
+    border-radius: 15px;
+  }
+  .settings .setting details.select ul label {
+    overflow-x: hidden;
+    border-radius: 15px;
+    height: 30px;
+    font-size: 16px;
+  }
 }
 .settings .setting.active, .settings .setting:hover {
   outline: 3px solid #fff;

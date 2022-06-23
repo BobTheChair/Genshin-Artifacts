@@ -1,6 +1,9 @@
 todo list i guess???
 
-settins on mobile
+settings on mobile
+
+more animated ui (css transitions)
+better scrollbar more like the ingame one
 
 more settings
 -rarity

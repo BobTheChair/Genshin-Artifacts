@@ -5,14 +5,15 @@ details.select {
 	width: 300px;
 	font-size: 20px;
 	
-	height: 20px;
-	padding: 15px;
+	height: 50px;
 	padding-left: 25px;
+	padding-right: 15px;
 	cursor: pointer;
 	border-radius: 30px;
 	background: $beige;
 
 	summary.radios {
+		height: 100%;
 		list-style: none;
 		counter-reset: radios;
 		max-width: 270px;
@@ -24,10 +25,18 @@ details.select {
 			pointer-events: none;
 			appearance: none;
 			display: none;
+			
+			margin-top: 0px;
+			margin-bottom: 0px;
+
+			top: -2px;
+			left: 0px;
+			position: relative;
+			height: 100%;
 		}
 
 		input[type=radio]:checked {
-			display: inline;
+			display: inline-block;
 		}
 
 		input[type=radio]:checked + ul>li {
@@ -35,8 +44,11 @@ details.select {
 		}
 
 		input[type=radio]:after {
-			font-family: $font-family;
 			font-size: 20px;
+			top: calc(50% - 10px);
+			position: relative;
+
+			font-family: $font-family;
 			content: attr(title);
 			display: inline;
 			color: $dark-color;
@@ -49,6 +61,7 @@ details.select {
 	summary:after {
 		float: right;
 		position: absolute;
+		top: 16px;
 		right: 20px;
 		/*color: $dark-color;*/
 		/*google why does this icon not do shit?*/
@@ -77,17 +90,17 @@ details.select {
 		label {
 			width: 100%;
 			cursor: pointer;
+			height: 50px;
+			color: #fff;
+			white-space: nowrap;
+			border-radius: 30px;
+			list-style: none;
 			li {
-				color: #fff;
-				white-space: nowrap;
-				user-select: none;
-				border-radius: 30px;
-				padding: 12px;
-				padding-left: 20px;
-				list-style: none;
+				position: relative;
+				top: calc(50% - 10px);
 			}
 		}
-		label:hover li {
+		label:hover {
 			background: #606979;
 		}
 	}
@@ -96,6 +109,7 @@ details.select {
 details.select:active, details.select:hover {
 	outline: 3px solid #fff;
 	box-shadow: 0 0 6px #fff;
+	-webkit-tap-highlight-color: transparent;
 }
 
 details[open] {

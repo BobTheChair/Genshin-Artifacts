@@ -42,30 +42,43 @@ elems.reroll.addEventListener('click', e => {
 	window.art.render();
 });
 
+elems.closeSettings.addEventListener('click', e => {
+	document.querySelector('.settings').setAttribute('opened', false);
+	//elems.openSettings.style.display = 'block';
+});
+elems.openSettings.addEventListener('click', e => {
+	document.querySelector('.settings').setAttribute('opened', true);
+	//elems.openSettings.style.display = 'none';
+});
+
 function populateSelect(elem, content, value, text) {
 	console.log(elem)
 	let ul = elem.querySelector('ul');
 	let radios = elem.querySelector('.radios');
 	let name = radios.querySelector('input').getAttribute('name');
-	for(let [k, c] of content) {
+	for(let c of content) {
+
 		let radio = document.createElement('input');
 		radio.setAttribute('type', 'radio');
 		radio.setAttribute('name', name);
-		radio.setAttribute('title', text(k,c));
-		radio.id = name + '-' + value(k, c);
+		radio.setAttribute('title', text(c));
+		radio.id = name + '-' + value(c);
 
 		radios.appendChild(radio);
 		let label = document.createElement('label');
 		let li = document.createElement('li');;
-		li.innerText = text(k, c),
-		label.setAttribute('for', name + '-' + value(k, c))
+		li.innerText = text(c),
+		label.setAttribute('for', name + '-' + value(c))
 		label.appendChild(li)
 		ul.appendChild(label);
 	}
 }
 
-populateSelect(elems.settings.set.elem, Object.entries(data.artifacts), key => key, (key, set) => set.name);
-populateSelect(elems.settings.piece.elem, Object.entries(data.main.rates), piece => piece, piece => data.en[piece]);
+populateSelect(elems.settings.set.elem, Object.keys(data.artifacts), key => key, set => data.artifacts[set].name);
+populateSelect(elems.settings.piece.elem, Object.keys(data.main.rates), piece => piece, piece => data.en[piece]);
+
+//populateSelect(elems.settings.rarity.elem, [5,4,3,2,1], rarity => rarity, rarity => rarity);
+populateSelect(elems.settings.mainstat.elem, Object.keys(data.main.values['5']), mainstat => mainstat, mainstat => data.en[mainstat]);
 
 window.art = new Artifact();
 window.art.render();

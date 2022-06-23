@@ -20,7 +20,7 @@ body {
 	margin: 0 0 0 0;
 	letter-spacing: -1px;
 }
-.artifact-container {   
+.artifact-container {
 	text-align: left;
 	position: absolute;
 	margin-top: 1%;
@@ -56,13 +56,12 @@ body {
 	
 	.artifact-border {
 		user-select: none;
+		filter: blur(0.5px);
 		div, img {
-			filter: blur(0.4px);
 			height: 58px;
 			position: absolute;
 		}
 		.artifact-border-middle {
-			filter: blur(0.4px);
 			width: 98%;
 			left: 1%;
 		}
@@ -72,6 +71,7 @@ body {
 		}
 	}
 	.name {
+		filter: blur(0.5px);
 		padding-top: 10px;
 		padding-left: 24px;
 		max-height: 100%;
@@ -87,6 +87,7 @@ body {
 	border-bottom: 5px solid #886a51;
 	padding-left: 24px;
 	.piece{
+		filter: blur(0.5px);
 		letter-spacing: 0px;
 		position: relative;
 		top: 12px;
@@ -104,6 +105,7 @@ body {
 		}
 	}
 	.mainstat {
+		filter: blur(0.5px);
 		position: relative;
 		top: 69px;
 		.type {
@@ -134,6 +136,7 @@ body {
 	height: 300px;
 	position: relative;
 	.level {
+		filter: blur(0.5px);
 		text-align: center;
 		color:white;
 		width: 52px;
@@ -150,6 +153,7 @@ body {
 		}
 	}
 	.substats {
+		filter: blur(0.5px);
 		color:  #556;
 		position: relative;
 		top: 42px;
@@ -167,10 +171,13 @@ body {
 			padding-right: 8px;
 			font-size: 20px;
 			content:  '•';
+			position: relative;
+			top: -3px;
 		}
 	}
 
 	.set {
+		filter: blur(0.5px);
 		position: relative;
 		top: 51px;
 		color: #5cb256;
@@ -254,25 +261,21 @@ body {
 .link {
 	left: 14px;
 	position: absolute;
-	top: calc(100% - 20px);
+	bottom: 10px;
 	a {
 		color: #fff;
 	}
-}
-
-
-.checkbox-container {
-	width: 160px;
-	float:right;
-	position: absolute;
-	margin-left: 10px;
-	top: -60px;
-	.checkbox {
-		margin-bottom: 3px;
+	
+	@media only screen and (max-width: 500px) {
+		display: none;
 	}
 }
 
+
 .settings {
+	
+	z-index: 2;
+	width: 650px;
 	position: absolute;
 	left: calc(50% + $containerWidth / 2);
 	margin-left: 20px;
@@ -282,7 +285,70 @@ body {
 		display: inline-block;
 	}
 	
-	@media only screen and (max-width: 500px) {
+	.link{
 		display: none;
 	}
+	@media only screen and (max-width: 500px) {
+		left: 0px;
+		width: calc(100% - 20px);
+		height: fit-content;
+		margin-left: 0px;
+		padding-top: 50px;
+		background: #38434e;
+
+		.link{
+			display: block;
+		}
+	}
+
+
+	padding: 10px;
+	padding-bottom: 50px;
+}
+
+
+.enhanced-reroll-container {
+	div {
+		display: inline-block;
+	}
+
+	top: 30px;
+	
+	margin-left: 20px;
+	position: absolute;
+	
+	.checkbox {
+		position: relative;
+		top: 8px;
+		left: 10px;
+		margin-bottom: 10px;
+	}
+}
+
+
+@media only screen and (max-width: 500px) {
+	.settings[opened=false] {
+		display: none;
+	}
+}
+
+.close-settings {
+	position: absolute;
+	left: 100%;
+	margin-left: -70px;
+	bottom: 14px;
+
+	@media only screen and (min-width: 501px) {
+		display: none;
+	}
+}
+.open-settings {
+	bottom: 60px;
+	left: 230px;
+	position: relative;
+	
+	@media only screen and (min-width: 501px) {
+		display: none;
+	}
+
 }

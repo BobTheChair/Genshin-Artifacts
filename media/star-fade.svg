@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 100" width="150" height="50">
+	<path style="fill: #e9e0cf" d="M 50 0 C 35 35 35 35 0 50 C 35 65 35 65 50 100 C 65 65 65 65 100 50 C 65 35 65 35 50 0 Z"></path>
+	<path style="fill: #e6dbc5" d="M 150 0 C 135 35 135 35 100 50 C 135 65 135 65 150 100 C 165 65 165 65 200 50 C 165 35 165 35 150 0 Z"></path>
+	<path style="fill: #ccbb99" d="M 250 0 C 235 35 235 35 200 50 C 235 65 235 65 250 100 C 265 65 265 65 300 50 C 265 35 265 35 250 0 Z"></path>
+</svg>

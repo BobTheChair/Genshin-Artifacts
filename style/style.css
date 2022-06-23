@@ -53,14 +53,13 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  filter: blur(0.5px);
 }
 .header .artifact-border div, .header .artifact-border img {
-  filter: blur(0.4px);
   height: 58px;
   position: absolute;
 }
 .header .artifact-border .artifact-border-middle {
-  filter: blur(0.4px);
   width: 98%;
   left: 1%;
 }
@@ -69,6 +68,7 @@ body {
   transform: rotateY(180deg);
 }
 .header .name {
+  filter: blur(0.5px);
   padding-top: 10px;
   padding-left: 24px;
   max-height: 100%;
@@ -85,6 +85,7 @@ body {
   padding-left: 24px;
 }
 .top .piece {
+  filter: blur(0.5px);
   letter-spacing: 0px;
   position: relative;
   top: 12px;
@@ -103,6 +104,7 @@ body {
   }
 }
 .top .mainstat {
+  filter: blur(0.5px);
   position: relative;
   top: 69px;
 }
@@ -132,6 +134,7 @@ body {
   position: relative;
 }
 .bottom .level {
+  filter: blur(0.5px);
   text-align: center;
   color: white;
   width: 52px;
@@ -149,6 +152,7 @@ body {
   }
 }
 .bottom .substats {
+  filter: blur(0.5px);
   color: #556;
   position: relative;
   top: 42px;
@@ -167,8 +171,11 @@ body {
   padding-right: 8px;
   font-size: 20px;
   content: "•";
+  position: relative;
+  top: -3px;
 }
 .bottom .set {
+  filter: blur(0.5px);
   position: relative;
   top: 51px;
   color: #5cb256;
@@ -252,34 +259,88 @@ body {
 .link {
   left: 14px;
   position: absolute;
-  top: calc(100% - 20px);
+  bottom: 10px;
 }
 .link a {
   color: #fff;
 }
-
-.checkbox-container {
-  width: 160px;
-  float: right;
-  position: absolute;
-  margin-left: 10px;
-  top: -60px;
-}
-.checkbox-container .checkbox {
-  margin-bottom: 3px;
+@media only screen and (max-width: 500px) {
+  .link {
+    display: none;
+  }
 }
 
 .settings {
+  z-index: 2;
+  width: 650px;
   position: absolute;
   left: calc(50% + 246px);
   margin-left: 20px;
+  padding: 10px;
+  padding-bottom: 50px;
 }
 .settings label {
   min-width: 60px;
   display: inline-block;
 }
+.settings .link {
+  display: none;
+}
 @media only screen and (max-width: 500px) {
   .settings {
+    left: 0px;
+    width: calc(100% - 20px);
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-left: 0px;
+    padding-top: 50px;
+    background: #38434e;
+  }
+  .settings .link {
+    display: block;
+  }
+}
+
+.enhanced-reroll-container {
+  top: 30px;
+  margin-left: 20px;
+  position: absolute;
+}
+.enhanced-reroll-container div {
+  display: inline-block;
+}
+.enhanced-reroll-container .checkbox {
+  position: relative;
+  top: 8px;
+  left: 10px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .settings[opened=false] {
+    display: none;
+  }
+}
+.close-settings {
+  position: absolute;
+  left: 100%;
+  margin-left: -70px;
+  bottom: 14px;
+}
+@media only screen and (min-width: 501px) {
+  .close-settings {
+    display: none;
+  }
+}
+
+.open-settings {
+  bottom: 60px;
+  left: 230px;
+  position: relative;
+}
+@media only screen and (min-width: 501px) {
+  .open-settings {
     display: none;
   }
 }/*# sourceMappingURL=style.css.map */

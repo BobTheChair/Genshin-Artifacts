@@ -11,7 +11,8 @@
 	<link rel="stylesheet" href="style/ui.css">
 </head>
 <body>
-	<!--img src="references/select-active.png" alt="">
+	<!--img style="position: absolute; top: -16px" src="references/artifact.png" alt="">
+	<img src="references/select-active.png" alt="">
 	<img src="references/select-hover.png" alt="">
 	<img src="references/select-active.png" alt="">
 	<img src="references/select-scrollwheel.png" alt="">
@@ -45,7 +46,7 @@
 		</div>
 
 		<div class="levelup">
-			<div id="enhance" class="button"><div class="circle"><div class="ring"></div></div><div class="label">Enhance</div></div>
+			<div id="enhance" class="button"><div class="circle"><div class="icon ring"></div></div><div class="label">Enhance</div></div>
 			<div class="levels">
 				<label for="number">+</label><input id="number" min="0" max="20" type="number" value="4">
 				<div class="updown">
@@ -55,16 +56,12 @@
 			</div>
 		</div>
 		
-		<div id="reroll" class="button"><div class="circle"><div class="ring"></div></div><div class="label">Reroll</div></div>
+		<div id="reroll" class="button"><div class="circle"><div class="icon ring"></div></div><div class="label">Reroll</div></div>
 		
-		<label class="checkbox-container" for="enhancedReroll">
-			<input type="checkbox" name="enhancedReroll" id="enhancedReroll">
-			<div class="checkbox"><div class="checkmark"><span class="icon material-icons-round"></span></div></div>
-			<br>Enhance on reroll
-		</label>
+		<div class="button-no-label open-settings"><span class="icon material-icons-round">menu</span></div>
 	</div>
 
-	<div class="settings">
+	<div class="settings" opened="false">
 		<div class="setting">
 			<span class="label">Set</span>
 			<details class="input set select">
@@ -80,9 +77,35 @@
 				<ul class="select-options"><label for="piece-random"><li>Random</li></label></ul>
 			</details>
 		</div>
+
+		<!--
+			<div class="setting">
+				<span class="label">Rarity</span>
+				<details class="input rarity select">
+					<summary class="radios"><input type="radio" name="rarity" title="Random" id="rarity-random" checked></summary>
+					<ul class="select-options"><label for="rarity-random"><li>Random</li></label></ul>
+				</details>
+			</div>
+		-->
+		<div class="setting">
+			<span class="label">Main stat</span>
+			<details class="input mainstat select">
+				<summary class="radios"><input type="radio" name="mainstat" title="Random" id="mainstat-random" checked></summary>
+				<ul class="select-options"><label for="mainstat-random"><li>Random</li></label></ul>
+			</details>
+		</div>
+		
+		
+		<label class="enhanced-reroll-container checkbox-container" for="enhancedReroll">
+			<input type="checkbox" name="enhancedReroll" id="enhancedReroll">
+			<div>Enhance on reroll</div>
+			<div class="checkbox"><div class="checkmark"><span class="icon material-icons-round"></span></div></div>
+		</label>
+
+		<div class="button-no-label close-settings"><span class="icon material-icons-round">close</span></div>
 	</div>
-	
 	<div class="link"><a href="https://github.com/BobTheChair/Genshin-Artifacts">Source code on GitHub</a></div>
+	
 
 </body>
 </html>

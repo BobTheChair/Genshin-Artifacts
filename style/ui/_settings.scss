@@ -1,6 +1,8 @@
 .settings {
 
-	width: 650px;
+	.setting:first-child {
+		margin-top: 0px;
+	}
 	.setting {
 		
 		height: 50px;
@@ -8,21 +10,20 @@
 		margin-top: 10px;
 		
 		color: $dark-color;
-		background: $beige;
+		background: #ece5d8;
 		padding-left: 20px;
 		border-radius: 30px;
-
+		
 		.label {
 			padding-left: 10px;
 			padding-top: 12px;
-			padding-bottom: 15px;
 			display: inline-block;
 		}
 
 		.input {
 			display: inline;
 			float: right;
-			background: #cdc2b6;
+			background: #d8cdb9;
 			border-radius: 0 25px 25px 0;	
 			text-align: center;
 		}
@@ -34,20 +35,61 @@
 			content: '';
 			height: 50px;
 			width: 150px;
-			background-image: linear-gradient(to left, 
-			#cdc2b633 0%,
-			#cdc2b633 16%,
-			#cdc2b633 16%,
-			#e4ded233 33%,
-			#e4ded288 33%,
-			#e4ded288 66%,
-			#e4ded2dd 66%,
-			#e4ded2dd 100%
-			),
-			url('../media/star.svg'),
-			url('../media/star.svg'),
-			url('../media/star.svg');
+			
+			background-image: url('../media/star-fade.svg');			
+			background-size: contain;
+
+			@media only screen and (max-width: 500px) {
+				height: 30px;
+				width: 90px;
+				left: -75px;
+			}
 		}
+		
+		
+		@media only screen and (max-width: 500px) {
+			height: 30px;
+			font-size: 16px;
+			
+			padding-left: 20px;
+			border-radius: 30px;
+			
+			.label {
+				padding-left: 0px;
+				padding-top: 6px;
+			}
+
+			.input.select {
+				height: 30px;
+				width: 200px;
+			}
+		
+			details.select {
+				summary:after {
+					top: 6px;
+					right: 12px;
+					width: 12px;
+					height: 12px;
+				}
+				summary.radios input[type=radio]:after {
+					font-size: 16px;
+					top: 5px;
+				}
+				ul {
+					margin-top: 0px;
+					overflow-x: hidden;
+					padding-top: 2px;
+					border-radius: 15px;
+					label {
+						overflow-x: hidden;
+						border-radius: 15px;
+						height: 30px;
+						font-size: 16px;
+					}
+				}
+			}
+		}
+
 	}	
 		
 	.setting.active, .setting:hover {

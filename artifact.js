@@ -48,11 +48,9 @@ export class Artifact {
 	}
 
 	renderMainStat() {
-		let mainstat = ["anemo", "cryo", "electro", "geo", "hydro", "pyro"].includes(this.mainstat) ? 'elem' : this.mainstat;
-
 		elems.mainstat.type.innerText = data.en[this.mainstat];
-		let value = this.getMainstat().toFixed(data.format[mainstat].decimals);
-		elems.mainstat.value.innerText = value + data.format[mainstat].suffix;
+		let value = this.getMainstat().toFixed(data.format[this.mainstat].decimals);
+		elems.mainstat.value.innerText = value + data.format[this.mainstat].suffix;
 	}
 
 	renderSubstats() {
@@ -95,8 +93,7 @@ export class Artifact {
 	}
 
 	getMainstat() {
-		let mainstat = ["anemo", "cryo", "electro", "geo", "hydro", "pyro"].includes(this.mainstat) ? 'elem' : this.mainstat;
-		return data.main.values[this.rarity][mainstat][this.level];
+		return data.main.values[this.rarity][this.mainstat][this.level];
 	}
 
 	weightedRandom(rates) {

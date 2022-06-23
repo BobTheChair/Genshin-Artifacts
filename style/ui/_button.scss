@@ -25,16 +25,18 @@
 		border-radius: 20px;
 		background: $dark-color;
 		.ring {
+			border-radius: 15px;
+			border: 3px solid $yellow;
+		}
+		.icon {
 			position: relative;
 			top: 9px;
 			left: 9px;
 			height: 16px;
 			width: 16px;
-			border-radius: 15px;
-			border: 3px solid $yellow;
 		}
 	}
-	
+
 	.label {
 		display: inline-block;
 

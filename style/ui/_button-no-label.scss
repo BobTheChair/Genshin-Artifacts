@@ -1,0 +1,46 @@
+.button-no-label {
+	user-select: none;
+	background-color: $beige;
+	cursor: pointer;
+	width: 58px;
+	height: 58px;
+	border-radius: 31px;
+	font-size: 28px;
+	color: $dark-color;
+
+	outline: 6px solid #bbb;
+	outline-offset: -6px;
+
+	transition: outline-width 50ms, outline-offset;
+
+	.icon {
+		position: relative;
+		top: 11px;
+		left: 11px;
+		font-size: 36px;
+	}
+}
+
+
+
+.button-no-label:hover {
+	outline: 3px solid #fff;
+	outline-offset: -3px;
+	box-shadow: 0 0 6px #fff;
+}
+.button-no-label:active {
+	box-shadow: 0 0 8px #fff;
+	outline: 0px solid #888;
+	outline-offset: -0px;
+	background: #cdc2b6;
+	-webkit-tap-highlight-color: transparent;
+	.label {
+		color: #fff;
+	}
+	.circle {
+		background: #978159;
+		.ring {
+			border: 3px solid #ffff5a;
+		}
+	}
+}
