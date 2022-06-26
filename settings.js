@@ -58,4 +58,13 @@ populateSelect(settings.piece.elem, Object.keys(data.main.rates), piece => piece
 populateSelect(settings.mainstat.elem, Object.keys(data.main.values['5']), mainstat => mainstat, mainstat => data.en[mainstat]);
 
 
-export {settings}
+function get() {
+    let opts = {};
+    for(let [setting, input] of Object.entries(settings)) {
+		let val = input.value(input.elem);
+		opts[setting] = !val || val === 'random' ? undefined : val;
+	}
+    return opts;
+}
+
+export {settings, get}

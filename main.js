@@ -29,18 +29,18 @@ elems.enhance.addEventListener('click', e => {
 	window.art.render();
 });
 
-elems.reroll.addEventListener('click', e => {
-	let opts = {};
+window.artifacts = [];
+
+function newArtifact() {
+	let opts = settings.get();
 	if(elems.enhancedReroll.checked) opts.level = elems.number.value - 0;
-	for(let [setting, input] of Object.entries(settings.settings)) {
-		let val = input.value(input.elem);
-		opts[setting] = !val || val === 'random' ? undefined : val;
-	}
-	
+
 	console.log(opts)
 	window.art = new Artifact(opts);
 	window.art.render();
-});
+	window.artifacts.push(window.art);
+}
 
-window.art = new Artifact();
-window.art.render();
+elems.reroll.addEventListener('click', newArtifact)
+
+newArtifact();
