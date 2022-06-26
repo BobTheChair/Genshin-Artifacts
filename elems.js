@@ -20,22 +20,6 @@ var updown = document.querySelector('.levelup .updown');
 
 var closeSettings = document.querySelector('.close-settings');
 var openSettings = document.querySelector('.open-settings');
-var settings = {
-	set: {
-		elem: document.querySelector('.setting .set'), 
-		value: elem => elem.querySelector('.radios :checked').id.split('-')[1]
-	},
-	piece: {
-		elem: document.querySelector('.setting .piece'),
-		value: elem => elem.querySelector('.radios :checked').id.split('-')[1]
-	},
-	/*rarity: {
-		elem: document.querySelector('.setting .rarity'),
-		value: elem => elem.querySelector('.radios :checked').id.split('-')[1]
-	},*/
-	mainstat: {
-		elem: document.querySelector('.setting .mainstat'),
-		value: elem => elem.querySelector('.radios :checked').id.replace('mainstat-', '')
-	}
-} 
+var settings = document.querySelector('.settings');
+
 export { container,name,image,piece,mainstat,rarity,set,level,substats,reroll,enhance,enhancedReroll,number,up,down,updown,closeSettings,openSettings,settings };
