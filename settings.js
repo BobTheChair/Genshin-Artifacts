@@ -20,13 +20,21 @@ var settings = {
 	}
 }
 
+let blur = document.createElement('div');
+blur.className = 'blur';
+blur.addEventListener('click', closeSettings);
 
-elems.closeSettings.addEventListener('click', e => {
+elems.closeSettings.addEventListener('click', closeSettings);
+elems.openSettings.addEventListener('click', openSettings);
+
+function closeSettings() {
 	elems.settings.setAttribute('opened', false);
-});
-elems.openSettings.addEventListener('click', e => {
+	document.body.removeChild(blur);
+}
+function openSettings() {
 	elems.settings.setAttribute('opened', true);
-});
+	document.body.appendChild(blur);
+}
 
 function populateSelect(elem, content, value, text) {
 	console.log(elem)
