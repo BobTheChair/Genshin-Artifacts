@@ -12,6 +12,7 @@ export class Artifact {
 
 	constructor(opts = {}) {
 
+		this.id = opts.id ? opts.id : this.uid(); //window.artifacts.length;
 		this.rarity = opts.rartity ? opts.rarity : 5;
 		this.set = opts.set ? opts.set : this.randomSet();
 		this.piece = opts.piece ? opts.piece : this.randomPiece();
@@ -33,12 +34,16 @@ export class Artifact {
 		}
 	}
 
+	getShortText() {
+		return 'Lvl ' +  this.level + ' ' + this.getName() + ' ' +  data.en[this.mainstat];
+	}
+
 	render() {
 		console.log(this);
 		let img =  data.artifacts[this.set].images[this.piece];
 		if(elems.image.getAttribute('src') !== img) elems.image.setAttribute('src', img);
 		elems.set.innerText = data.artifacts[this.set].name;
-		elems.name.innerText =  data.artifacts[this.set][this.piece].name;
+		elems.name.innerText =  this.getName();
 		elems.piece.innerText = data.en[this.piece];
 		elems.level.innerText = '+'+this.level;
 
@@ -86,6 +91,12 @@ export class Artifact {
 			set = this.randomEntry(Object.keys(data.artifacts));
 		} while(!data.artifacts[set].rarity.includes(rarity))
 		return set;
+	}
+
+
+
+	getName() {
+		return data.artifacts[this.set][this.piece].name;
 	}
 
 	randomPiece() {
@@ -158,5 +169,9 @@ export class Artifact {
 				'->', (roll.value + stat[0].value).toFixed(data.format[roll.type].decimals) );
 			stat[0].value += roll.value;
 		}
+	}
+	
+	uid() {
+		return Math.random().toString(36).substr(2, 10);
 	}
 }

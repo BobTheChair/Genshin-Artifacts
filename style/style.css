@@ -3,14 +3,6 @@
   font-family: "Genshin";
   src: url("../media/Genshin_Impact_Font.woff") format("woff");
 }
-body {
-  color: #eee;
-  font-family: "Genshin", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #333;
-  margin: 0 0 0 0;
-  letter-spacing: -1px;
-}
-
 .artifact-container {
   text-align: left;
   position: absolute;
@@ -186,6 +178,14 @@ body {
   background: linear-gradient(345deg, rgba(0, 0, 0, 0) 5%, #a4744e 50%, #655151 100%), linear-gradient(325deg, rgba(0, 0, 0, 0) 5%, #a4744e 50%, #655151 100%), #f1ac3f;
 }
 
+body {
+  color: #eee;
+  font-family: "Genshin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #333;
+  margin: 0 0 0 0;
+  letter-spacing: -1px;
+}
+
 .levelup {
   position: relative;
   margin-top: 5px;
@@ -327,10 +327,11 @@ body {
   left: 100%;
   margin-left: -70px;
   bottom: 14px;
+  display: none;
 }
-@media only screen and (min-width: 501px) {
+@media only screen and (max-width: 500px) {
   .close-settings {
-    display: none;
+    display: block;
   }
 }
 
@@ -338,9 +339,44 @@ body {
   bottom: 60px;
   left: 230px;
   position: relative;
+  display: none;
 }
-@media only screen and (min-width: 501px) {
+@media only screen and (max-width: 500px) {
   .open-settings {
+    display: block;
+  }
+}
+
+.artifacts {
+  margin: 5px;
+  padding: 5px;
+  position: absolute;
+  height: calc(100% - 50px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  white-space: nowrap;
+  width: 400px;
+}
+.artifacts [artifact] {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  padding-bottom: 6px;
+  padding-left: 4px;
+}
+.artifacts [artifact] .delete {
+  margin-right: 4px;
+  position: relative;
+  top: 6px;
+  color: #e6455f;
+}
+.artifacts [artifact]:hover {
+  background-color: rgba(255, 255, 255, 0.3333333333);
+}
+@media only screen and (max-width: 500px) {
+  .artifacts {
     display: none;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -22,4 +22,6 @@ var closeSettings = document.querySelector('.close-settings');
 var openSettings = document.querySelector('.open-settings');
 var settings = document.querySelector('.settings');
 
-export { container,name,image,piece,mainstat,rarity,set,level,substats,reroll,enhance,enhancedReroll,number,up,down,updown,closeSettings,openSettings,settings };
+var artifacts = document.querySelector('.artifacts');
+
+export { container,name,image,piece,mainstat,rarity,set,level,substats,reroll,enhance,enhancedReroll,number,up,down,updown,closeSettings,openSettings,settings,artifacts};
