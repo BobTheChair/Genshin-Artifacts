@@ -94,8 +94,6 @@ function selectArtifact(key) {
 window.selectArtifact = selectArtifact;
 
 function deleteArtifact(key) {
-	
-	console.log(key, window.artifacts[key] !== undefined);
 	if(window.artifacts[key] !== undefined)	delete window.artifacts[key];
 	elems.artifacts.querySelector('[artifact="'+key+'"]').remove();
 	sessionStorage.setItem('artifacts', JSON.stringify(window.artifacts))
