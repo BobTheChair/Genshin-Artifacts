@@ -35,16 +35,16 @@ export class Artifact {
 	}
 
 	getShortText() {
-		return 'Lvl ' +  this.level + ' ' + this.getName() + ' ' +  data.en[this.mainstat];
+		return 'Lvl ' +  this.level + ' ' + data.en[this.mainstat] + ' ' + this.getPiece() + ' - ' + this.getSet();
 	}
 
 	render() {
 		console.log(this);
 		let img =  data.artifacts[this.set].images[this.piece];
 		if(elems.image.getAttribute('src') !== img) elems.image.setAttribute('src', img);
-		elems.set.innerText = data.artifacts[this.set].name;
+		elems.set.innerText = this.getSet();
 		elems.name.innerText =  this.getName();
-		elems.piece.innerText = data.en[this.piece];
+		elems.piece.innerText = this.getPiece();
 		elems.level.innerText = '+'+this.level;
 
 		this.renderMainStat();
@@ -93,7 +93,13 @@ export class Artifact {
 		return set;
 	}
 
+	getPiece() {
+		return data.en[this.piece];
+	}
 
+	getSet() {
+		return data.artifacts[this.set].name;
+	}
 
 	getName() {
 		return data.artifacts[this.set][this.piece].name;
