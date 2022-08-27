@@ -39,7 +39,7 @@ export class Artifact {
 	}
 
 	render() {
-		console.log(this);
+		console.log('CV:', this.calcCV(), this);
 		let img =  data.artifacts[this.set].images[this.piece];
 		if(elems.image.getAttribute('src') !== img) elems.image.setAttribute('src', img);
 		elems.set.innerText = this.getSet();
@@ -54,7 +54,7 @@ export class Artifact {
 
 	renderMainStat() {
 		elems.mainstat.type.innerText = data.en[this.mainstat];
-		let value = this.getMainstat().toFixed(data.format[this.mainstat].decimals);
+		let value = this.formatStat({type:this.mainstat, value:this.getMainstat()});
 		elems.mainstat.value.innerText = value + data.format[this.mainstat].suffix;
 	}
 
@@ -63,7 +63,7 @@ export class Artifact {
 		for(let stat of this.substats) {
 			str += '<div class="stat">';
 			str += data.en[stat.type];
-			str += '+' + stat.value.toFixed(data.format[stat.type].decimals);
+			str += '+' + this.formatStat(stat);
 			str += data.format[stat.type].suffix;
 			str += '</div>';
 		}
@@ -132,6 +132,10 @@ export class Artifact {
 		return this.weightedRandom(data.main.rates[this.piece]);
 	}
 
+	formatStat(stat) {
+		return stat.value.toFixed(data.format[stat.type].decimals);
+	}
+
 	roll() {
 		let values = data.sub.values;
 		let rates = {};
@@ -168,16 +172,28 @@ export class Artifact {
 		let roll = this.roll();
 		if(this.substats.length < 4) {
 			this.substats.push(roll);
-			if(levelup) console.log(roll.type, 0, '->', roll.value.toFixed(data.format[roll.type].decimals ));
+			if(levelup) console.log(roll.type, 0, '->', this.formatStat(roll));
 		} else {
 			let stat = this.substats.filter(s => s.type === roll.type);
-			console.log(roll.type, (stat[0].value).toFixed(data.format[roll.type].decimals),
-				'->', (roll.value + stat[0].value).toFixed(data.format[roll.type].decimals) );
+			console.log(roll.type, this.formatStat(stat[0]), '->', this.formatStat({type:roll.type, value: roll.value + stat[0].value}));
 			stat[0].value += roll.value;
 		}
 	}
 	
 	uid() {
 		return Math.random().toString(36).substr(2, 10);
+	}
+
+	
+
+	calcCV() {
+		let cr = 0;
+		let cd = 0;
+		for(let stat of this.substats) {
+			if(stat.type === 'cr') cr = this.formatStat(stat);
+			if(stat.type === 'cd') cd = this.formatStat(stat);
+		}
+
+		return cd + cr*2;
 	}
 }

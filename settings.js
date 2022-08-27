@@ -1,22 +1,31 @@
 import * as data from './data.js';
 import * as elems from './elems.js';
 
+
+let defaultValue = elem => {
+	let checked = elem.querySelector('.radios :checked')
+	return checked ? checked.id.split('-')[1] : undefined;
+}
+
 var settings = {
 	set: {
 		elem: document.querySelector('.setting .set'), 
-		value: elem => elem.querySelector('.radios :checked').id.split('-')[1]
+		value: defaultValue
 	},
 	piece: {
 		elem: document.querySelector('.setting .piece'),
-		value: elem => elem.querySelector('.radios :checked').id.split('-')[1]
+		value: defaultValue
 	},
 	/*rarity: {
 		elem: document.querySelector('.setting .rarity'),
-		value: elem => elem.querySelector('.radios :checked').id.split('-')[1]
+		value: defaultValue
 	},*/
 	mainstat: {
 		elem: document.querySelector('.setting .mainstat'),
-		value: elem => elem.querySelector('.radios :checked').id.replace('mainstat-', '')
+		value: elem => { 		
+			let checked = elem.querySelector('.radios :checked')
+			return checked ? checked.id.replace('mainstat-', '') : undefined;
+		}
 	}
 }
 

@@ -71,6 +71,7 @@ window.artifacts = getStorage();
 
 function newArtifact() {
 	let opts = settings.get();
+	console.log(opts);
 	if(elems.enhancedReroll.checked) opts.level = elems.number.value - 0;
 
 	window.art = new Artifact(opts);
