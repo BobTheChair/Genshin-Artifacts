@@ -193,7 +193,6 @@ export class Artifact {
 			if(stat.type === 'cr') cr = this.formatStat(stat);
 			if(stat.type === 'cd') cd = this.formatStat(stat);
 		}
-
-		return cd + cr*2;
+		return cd*1 + cr*2;
 	}
 }
