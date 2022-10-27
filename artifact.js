@@ -22,14 +22,17 @@ export class Artifact {
 			this.level = opts.level ? opts.level : 0;
 			this.substats = opts.substats;
 		} else {
+			//get first 3 substats
 			this.upgrade();
 			this.upgrade();
 			this.upgrade();
-	
+			
+			//25% chance to get the last 4th substat
 			if(Math.random() > 0.75) {
 				this.upgrade();
 			}
 
+			//if levels is set, enhance to level
 			if(opts.level) this.enhance(opts.level);
 		}
 	}
@@ -85,7 +88,7 @@ export class Artifact {
 	
 	randomSet() {
 		let set;
-		//convert to string because the json contains strings
+		//convert to string because the json object keys are strings
 		let rarity = (this.rarity).toString();
 		do {
 			set = this.randomEntry(Object.keys(data.artifacts));
@@ -116,14 +119,20 @@ export class Artifact {
 	weightedRandom(rates) {
 		let i;
 		let sum = 0;
+		
+		//object keys contain the "values" we are rolling for
 		let types = Object.keys(rates);
-		let values = Object.values(rates);
-		let total = values.reduce((partialSum, a) => partialSum + a, 0);
+
+		//object values contain the weight for its key
+		let weight = Object.values(rates);
+
+		//calculate the total weight
+		let total = weight.reduce((partialSum, a) => partialSum + a, 0);
 
 		let r = Math.random();
 
-		for (i in values) {
-			sum += values[i] / total;
+		for (i in weight) {
+			sum += weight[i] / total;
 			if (r <= sum) return types[i];
 		}
 	}
@@ -183,8 +192,6 @@ export class Artifact {
 	uid() {
 		return Math.random().toString(36).substr(2, 10);
 	}
-
-	
 
 	calcCV() {
 		let cr = 0;
