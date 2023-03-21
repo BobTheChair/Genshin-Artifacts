@@ -2,7 +2,7 @@ import * as data from './data.js';
 import * as elems from './elems.js';
 import * as settings from './settings.js';
 import { Artifact } from './artifact.js';
-
+window.data = data;
 
 /**
  * enfoces min/max value for manual input on a number input

@@ -17,9 +17,9 @@ export class Artifact {
 		this.set = opts.set ? opts.set : this.randomSet();
 		this.piece = opts.piece ? opts.piece : this.randomPiece();
 		this.mainstat = opts.mainstat ? opts.mainstat : this.randomMainstat();
-		
+		this.level = opts.level ? opts.level : 0;
+
 		if(opts.substats) {
-			this.level = opts.level ? opts.level : 0;
 			this.substats = opts.substats;
 		} else {
 			//get first 3 substats
@@ -38,7 +38,8 @@ export class Artifact {
 	}
 
 	getShortText() {
-		return 'Lvl ' +  this.level + ' ' + data.en[this.mainstat] + ' ' + this.getPiece() + ' - ' + this.getSet();
+		console.log(data.enShort)
+		return 'Lvl ' +  this.level + ' ' + data.enShort[this.mainstat] + ' ' + data.enShort[this.piece] + ' CV' +this.calcCV() +' - ' + this.getSet();
 	}
 
 	render() {
