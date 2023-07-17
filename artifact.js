@@ -9,6 +9,10 @@ export class Artifact {
 	substats = [];
 	rarity;
 	level = 0;
+	
+	static maxSubstats = 4;
+	static maxLevel = 20;
+	static newSubstatInterval = 4;
 
 	constructor(opts = {}) {
 
@@ -38,7 +42,6 @@ export class Artifact {
 	}
 
 	getShortText() {
-		console.log(data.enShort)
 		return 'Lvl ' +  this.level + ' ' + data.enShort[this.mainstat] + ' ' + data.enShort[this.piece] + ' CV' +this.calcCV() +' - ' + this.getSet();
 	}
 
@@ -58,7 +61,7 @@ export class Artifact {
 
 	renderMainStat() {
 		elems.mainstat.type.innerText = data.en[this.mainstat];
-		let value = this.formatStat({type:this.mainstat, value:this.getMainstat()});
+		let value = this.formatStat({type:this.mainstat, value:this.getMainstatValue()});
 		elems.mainstat.value.innerText = value + data.format[this.mainstat].suffix;
 	}
 
@@ -83,10 +86,17 @@ export class Artifact {
 		elems.rarity.innerHTML = stars.join(''); 
 	}
 
+	/**
+	 * @param {Array} array any normal array with 
+	 * @returns random value from input array
+	 */
 	randomEntry(array) {
 		return array[Math.floor(Math.random() * array.length)];
 	}
 	
+	/**
+	 * @returns a random artifact set
+	 */
 	randomSet() {
 		let set;
 		//convert to string because the json object keys are strings
@@ -97,24 +107,46 @@ export class Artifact {
 		return set;
 	}
 
+	/**
+	 * @returns artifact's diplay piece type name
+	 */
 	getPiece() {
 		return data.en[this.piece];
 	}
 
+	/**
+	 * @returns artifact's set display name
+	 */
 	getSet() {
 		return data.artifacts[this.set].name;
 	}
 
+	/**
+	 * @returns artifact's display name 
+	 */
 	getName() {
 		return data.artifacts[this.set][this.piece].name;
 	}
 
+	/**
+	 * @returns artifacts mainstat value
+	 */
+	getMainstatValue() {
+		return data.main.values[this.rarity][this.mainstat][this.level > 20 ? 20 : this.level];
+	}
+
+	/**
+	 * @return string name of a random artifact piece type (flower, plume, sands, goblet, circlet)
+	 */
 	randomPiece() {
 		return this.randomEntry(Object.keys(data.main.rates));
 	}
 
-	getMainstat() {
-		return data.main.values[this.rarity][this.mainstat][this.level];
+	/**
+	 * @returns random mainstat type dependant on artifact piece
+	 */
+	randomMainstat() {
+		return this.weightedRandom(data.main.rates[this.piece]);
 	}
 
 	weightedRandom(rates) {
@@ -138,10 +170,6 @@ export class Artifact {
 		}
 	}
 
-	randomMainstat() {
-		return this.weightedRandom(data.main.rates[this.piece]);
-	}
-
 	formatStat(stat) {
 		return stat.value.toFixed(data.format[stat.type].decimals);
 	}
@@ -150,13 +178,15 @@ export class Artifact {
 		let values = data.sub.values;
 		let rates = {};
 
-		if(this.substats.length < 4) {
+		if(this.substats.length < Artifact.maxSubstats) {
+			//if at maximum substats count, select substat already on the item
 			for(let rate of Object.keys(data.sub.rates)) {
 				if(rate === this.mainstat) continue;
 				if(this.substats.filter(stat => stat.type === rate).length !== 0) continue;
 				rates[rate] = data.sub.rates[rate];
 			}
 		} else {
+			//if not at maximum substat count, select substat not on the item
 			for(let stat of this.substats) {
 				if(stat.type === this.mainstat) continue;
 				rates[stat.type] = data.sub.rates[stat.type];
@@ -166,34 +196,55 @@ export class Artifact {
 		return {type: type, value: values[type][Math.floor(Math.random() * values[type].length)]};
 	}
 
+	/**
+	 * enhances item by the specified amount of levels, will add/upgrade substats if the item reaches the required levels
+	 * @param levels levels to enhance artifact by
+	 */
 	enhance(levels) {
 		if(!levels) return;
 		levels = parseInt(levels);
-		if(levels + this.level > 20) return;
+		if(levels + this.level > Artifact.maxLevel) return;
 
 		for(var i = 1; i <= levels; i++){
-			if((this.level + i) % 4 !== 0)  continue;
-			this.upgrade(true);
+			if((this.level + i) % Artifact.newSubstatInterval !== 0)  continue;
+			this.upgrade();
 		}
 		this.level += levels;
 	}
 
-	upgrade(levelup = false) {
+	/**
+	 * upgrades a random substat on the item, if item does not yet have maximum substats, a new one will be added instead
+	 */
+	upgrade() {
 		let roll = this.roll();
-		if(this.substats.length < 4) {
+
+		let change = {type:roll.type,from:0, to:roll.value};
+		
+		if(this.substats.length < Artifact.maxSubstats) {
 			this.substats.push(roll);
-			if(levelup) console.log(roll.type, 0, '->', this.formatStat(roll));
 		} else {
-			let stat = this.substats.filter(s => s.type === roll.type);
-			console.log(roll.type, this.formatStat(stat[0]), '->', this.formatStat({type:roll.type, value: roll.value + stat[0].value}));
-			stat[0].value += roll.value;
+			let stat = this.substats.filter(s => s.type === roll.type)[0];
+			
+			change.from = stat.value;
+			change.to += stat.value;
+
+			stat.value += roll.value;
 		}
+		console.log(change.type, change.from.toFixed(2), '->', change.to.toFixed(2));
 	}
 	
+	/**
+	 * string a random 36 digit number, sometimes with a 0 in front, but its a string so the 0 will still be there
+	 * @returns string containg a 36 digit number
+	 */
 	uid() {
 		return Math.random().toString(36).substr(2, 10);
 	}
 
+	/**
+	 * cv formula is crit damage + crit chance multiplied by 2
+	 * @returns cv of the artifact
+	 */
 	calcCV() {
 		let cr = 0;
 		let cd = 0;
